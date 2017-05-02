@@ -1,0 +1,33 @@
+
+<ion-header header-shadow no-border>
+    <ion-navbar color="white">
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+ <div class="tigan" (click)="showImage(titleUrls,title)">
+  <!-- <img class="picTi" src="{{item}}" *ngFor="let item of titleUrls"/> -->
+  <img-lazy padding-10 src="{{item}}" *ngFor="let item of titleUrls"></img-lazy>
+</div>
+<div class="percent" *ngFor="let content of contents;let i=index;">
+  <div class="perTit">
+      <p class="grade fl bluebg" 
+      [class.greenbg]="content.answer?content.answer==content.value:content.list[0].score>0&&i==0">{{content.value}}</p>
+        <p class="peoNum">{{content.list.length}}人，占比{{content.rate}}%</p>
+    </div>
+    <div class="perList">
+      <div class="listDetail" *ngFor="let item of content.list">
+          <p class="peoName fl">{{item.name}}  <em style="color: #999;">{{item.score}}分</em></p>
+            <div class="fr">
+              <button ion-button clear color="yellow" (click)="openModalAlbum(item)" 
+              style="vertical-align: middle;font-size: 1.4rem;" small>
+              查看答卷
+              </button>
+            </div>
+        </div>
+    </div>
+</div>
+<loading [error]="request"></loading> 
+</ion-content>

@@ -1,0 +1,88 @@
+
+ <ion-header no-border header-shadow>
+  <ion-navbar>
+      <ion-title class="navbar-item" [class.no-animate]="noPageAnimate">
+      考试
+      <ion-note>{{tempSelected?.exam.name}}</ion-note>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+ <ion-content [class.no-animate]="noPageAnimate">
+  <!-- 考试 -->
+  <ion-list *ngIf="options" style="margin-bottom: 62px;">  
+  <ion-card *ngIf="options?.exams.length" padding-top>
+   <!--  <ion-card-header>
+      <div class="title">考试<p class="fr">{{tempSelected.exam.name}}</p></div>
+    </ion-card-header> -->
+    <ion-buttons >
+      <button ion-button outline  block small color="light" text-wrap
+      *ngFor="let item of options.exams" 
+      (click)="examTapped(item)" 
+      [class.selected]="tempSelected.exam.code===item.code">{{item.name}}</button>
+    </ion-buttons>
+
+    <ion-row no-padding *ngIf="options.total>5" class="more" justify-content-end>
+      <ion-col text-right color="yellow" no-padding col-5 (click)="allTapped('exam')" tappable>更多考试 
+      <ion-icon name="ios-arrow-forward" class="icon gray9"></ion-icon></ion-col> 
+    </ion-row>
+    </ion-card>
+    <!-- 班级 -->
+    <ion-card cls *ngIf="options._classes.length" [ngSwitch]="occupy">
+      <ion-card-header>
+        <div class="title">班级<p class="fr">{{occupy?'':tempSelected.class.name}}</p></div>
+        <h3 *ngIf="options.multiple" padding-bottom-10> {{options.school.name}}</h3>
+      </ion-card-header>
+
+      <ion-list *ngSwitchCase="false">
+        <button *ngFor="let item of options._classes" 
+        ion-button outline small color="light"
+          (click)="classTapped(item)"
+         [class.selected]="tempSelected.class.code===item.code">
+         {{item.name}}
+        </button>
+      </ion-list>
+      <ion-row *ngSwitchCase="true" padding margin-bottom justify-content-center>
+        <ion-spinner name="dots"  color="dark"></ion-spinner>
+      </ion-row>
+      <ion-row *ngSwitchCase="undefined" padding margin-bottom justify-content-center>
+      <ion-note>暂无班级</ion-note>
+      </ion-row>
+
+      <ion-row no-padding *ngIf="options.more" class="more" justify-content-end>
+          <ion-col text-right no-padding col-5 color="yellow" (click)="allTapped('class')" tappable>
+            更多班级 
+          <ion-icon name="ios-arrow-forward" class="icon gray9"></ion-icon></ion-col> 
+      </ion-row>
+    </ion-card >
+    <!-- 科目 -->
+    <ion-card [ngSwitch]="occupy" *ngIf="options.subjects.length">
+    <ion-card-header>
+      <div class="title">科目<p class="fr">{{occupy?'':tempSelected.subject}}</p></div>
+    </ion-card-header>
+    <ion-list text-left  *ngSwitchCase="false">
+        <button class="ke" *ngFor="let item of options.subjects" text-nowrap
+        [class.selected]="tempSelected.subject==item" 
+        (click)="subjectTapped(item)">{{item}}</button>
+    </ion-list>
+    <ion-row *ngSwitchCase="true" padding margin-bottom justify-content-center>
+      <ion-spinner name="dots"  color="dark"></ion-spinner></ion-row>
+    <ion-row *ngSwitchCase="undefined" padding margin-bottom justify-content-center>
+      <ion-note>暂无科目</ion-note>
+      </ion-row>
+    </ion-card>
+    </ion-list>
+     <loading [error]="request"></loading>
+  </ion-content>
+  <ion-footer no-shadow no-border *ngIf="options?.exams.length">
+    <ion-toolbar padding-left padding-right  [class.no-animate]="noPageAnimate">
+      <button 
+        block 
+        ion-button 
+        style="border-radius: 2px;" 
+        (click)="menuClose(true)"
+        [color]="occupy?'disabled':'dark'">确定</button>
+      <!-- <button class="queding" padding-left padding-right block>确定</button> -->
+    </ion-toolbar>
+  </ion-footer>
+ 

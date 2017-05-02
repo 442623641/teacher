@@ -1,0 +1,135 @@
+page-markmenu {
+	.content{
+		.toggle {
+			.toggle-icon::before,.toggle-inner{
+			    position: relative;
+			}
+		}
+		&>.scroll-content{
+			height:100vh;
+			touch-action:none;
+		}
+		background: transparent;
+		.box{
+			h5{
+				color: #fff;
+				text-align:left;
+			}
+			left: 0;
+		    right: 0;
+		    /* width: 100%; */
+		    width: 70%;
+			height:100vh;
+			top:0;
+			bottom:0;
+			margin: 0 auto;
+			font-weight:bold;
+			-webkit-perspective: 1000;
+			 -moz-perspective: 1000;
+			 -o-perspective: 1000;
+			 perspective: 1000;	
+			-webkit-transition: 0.6s;
+		    -webkit-transform-style: preserve-3d;
+		    -moz-transition: 0.6s;
+		    -moz-transform-style: preserve-3d;
+		    -o-transition: 0.6s;
+		    -o-transform-style: preserve-3d;
+		    transition: 0.6s;
+		    transform-style: preserve-3d;
+		    position: fixed;
+		    .button{
+		    	font-weight:bold;
+		    	ion-icon{
+		    		font-size: 2em;
+		    	}
+		    	&.active{
+		    		color:color($colors,yellow);
+		    		border-color:color($colors,yellow);
+		    	}
+		    }
+			.front,.reverse{
+				.scroll-content,ion-toggle{
+					opacity: 0;
+					-webkit-opacity:0;
+				}
+				height: inherit;
+			    position: absolute;
+			    top: 0;
+			    z-index: 91;
+			    text-align: center;
+			    -webkit-transform: rotateX(0deg) rotateY(0deg);
+			    -moz-transform: rotateX(0deg) rotateY(0deg);
+			    transform: rotateX(0deg) rotateY(0deg);
+			    -webkit-transform-style: preserve-3d;
+			    -moz-transform-style: preserve-3d;
+			    transform-style: preserve-3d;
+			    -webkit-backface-visibility: hidden;
+			    -moz-backface-visibility: hidden;
+			    -webkit-transition: all .4s ease-in-out;
+			    -moz-transition: all .4s ease-in-out;
+			    -ms-transition: all .4s ease-in-out;
+			    -o-transition: all .4s ease-in-out;
+			    transition: all .4s ease-in-out;
+			}
+			.reverse{
+				z-index: 90;
+				-webkit-transform: rotateY(180deg);
+				-moz-transform: rotateY(180deg);
+			    -o-transform: rotateY(180deg);
+				transform: rotateY(180deg);
+			}
+			&.flip .front {
+				z-index: 100;
+				-webkit-transform: rotateY(180deg);
+				-moz-transform: rotateY(180deg);
+			}
+			&.flip .reverse {
+				z-index: 100;
+				-webkit-transform: rotateX(0deg) rotateY(0deg);
+				-moz-transform: rotateX(0deg) rotateY(0deg);
+				.scroll-content,ion-toggle{
+					//transition-delay:2s;
+					//-webkit-transition-delay:2s;
+					@include transition(opacity,1s);
+					opacity: 1;
+					-webkit-opacity: 1;
+				}
+			}
+		}
+	}
+   	ion-col>span{
+		display:block;
+		font-weight:bold;
+		color:#fff;
+	}
+	.pane-setting{
+		padding-top:10%;
+		.scroll-score{
+			ion-row{
+				height:52px;
+				ion-col{
+					width:52px;
+					line-height:42px;
+					&.active{
+						color:color($colors,yellow);
+						border: 1px solid color($colors,yellow);
+						//background:#191515;
+					}
+				}
+			}
+			//max-height: 45px;
+			height: 52px;
+			background:color($colors,dark4);
+			//background:color($colors,dark4);
+			color: white;
+			
+			.scroll-content{
+				padding:0px;
+			}
+		}
+
+	}
+/*菜单 结束*/
+
+
+}

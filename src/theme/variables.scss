@@ -1,0 +1,188 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  dark3:      #333333,
+  primary:    #387ef5,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #333333,
+  yellow:     #ff7d2d,
+  white:      #ffffff,
+  gray9:      #999999,
+  gray6:      #666666,
+  black:      #000000,
+  disabled:   rgba(74, 76, 91, .4),
+  background: #f2f3f4,
+  grayd6:     #d6d5d6,
+  blue:       #52a7ff,
+  dark4:      #4a4c5b,
+  depthwhite: #ffffff,
+  transparent: rgba(0,0,0,0),
+  
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+/*base config */
+$font-family-base: 'Microsoft YaHei','微软雅黑';
+$font-size-base:16px;
+//my scss
+$menu-width:324px;
+$yellow:color($colors, yellow);
+$gray9:color($colors, gray9);
+
+//$tabs-ios-tab-text-color-active:color($colors, yellow);
+//$tabs-ios-tab-text-color:color($colors, gray9);
+//$navbar-height:38px;
+/*header*/
+$toolbar-ios-height:45px;
+$toolbar-ios-title-text-color:color($colors, dark);
+$toolbar-ios-title-font-size: 1.125em;
+$toolbar-ios-title-font-weight:bold;
+$toolbar-ios-button-color:#333333;
+$toolbar-ios-button-font-size:1em;
+$toolbar-background:color($colors, white);
+$toolbar-ios-border-color:rgba(214, 213, 214, .9);
+
+//$spinner-ios-ios-color:color($colors, yellow);
+$loading-ios-text-color:color($colors, white);
+$loading-ios-spinner-color:color($colors, white);
+$loading-ios-background:rgba(0, 0, 0, .6);
+$loading-ios-content-font-weight:normal;
+//$refresher-icon-color:color($colors, yellow);
+//$refresher-text-color:color($colors, yellow);
+
+
+$card-ios-font-size:1em;
+$card-ios-header-font-size:1em;
+$list-background-color:color($colors, white);
+
+$tabs-background:color($colors, white);
+$tabs-tab-color-active:color($colors, yellow);
+$tabs-tab-color-inactive:color($colors, gray9);
+$tabs-ios-tab-icon-size:2rem;
+$tabs-ios-border-color:rgba(214, 213, 214, .9);
+//$item-ios-paragraph-font-size:38px;
+//$item-ios-body-text-font-size:38px;
+$refresher-height:45px;
+$refresher-icon-font-size:24px;
+$refresher-border-color:transparent;
+/// @prop - Height of the refresher
+// $refresher-height:             60px !default;
+/// @prop - Color of the refresher icon
+$refresher-icon-color:         #b3b3b3 !default;
+/// @prop - Font size of the refresher icon
+$refresher-icon-font-size:     12px !default;
+/// @prop - Text color of the refresher content
+$refresher-text-color:         #b3b3b3 !default;
+/// @prop - Font size of the refresher content
+//$refresher-text-font-size:     12px !default;
+/// @prop - Border color of the refresher
+// $refresher-border-color:       #ddd !default;
+
+
+$infinite-scroll-loading-margin:0;
+$infinite-scroll-loading-text-margin:0;
+
+$card-ios-border-radius:4px;
+$card-ios-box-shadow: none;
+$card-ios-header-padding:12px;
+$card-ios-margin-left:12px;
+$card-ios-margin-right:12px;
+$card-ios-header-padding:12px;
+$card-ios-header-font-size:1.6rem;
+$card-ios-header-font-weight:bold;
+
+/* mark subheader */
+//$segment-button-md-border-bottom-color:color($colors, yellow);
+$toolbar-md-active-color:color($colors, yellow);
+$segment-button-md-border-bottom-width:0px;
+$segment-button-md-font-size:16px;
+$segment-button-md-text-color-activated:color($colors, yellow);
+$segment-button-md-line-height:40px;
+$segment-button-md-height:40px;
+$segment-button-md-border-bottom-color:transparent;
+/*item */
+$item-ios-body-text-font-size:1.6rem;
+/*transition background*/
+$content-ios-transition-background:rgba(0, 0, 0, .4);
+/*end */
+
+$radio-ios-color-on:color($colors, yellow);
+
+$infinite-scroll-loading-color:#8c8c8c;
+$infinite-scroll-loading-margin:0 0 25px 0;
+
+$popover-ios-background:#333333;
+
+$toggle-ios-width:45px;
+$toggle-ios-height:24px;
+$toggle-ios-border-width:2px;
+$toggle-ios-background-color-on:#bdd2f5;

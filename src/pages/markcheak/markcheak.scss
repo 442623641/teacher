@@ -1,0 +1,104 @@
+
+page-markcheak {
+	.header > ion-toolbar {
+		border-top: 0px solid;
+	}
+	.segment-ios .segment-button {
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		width: 0;
+
+		border-width: 1px;
+		der-style: solid;
+		border-color: #fff;
+		font-size: 1.3rem;
+
+		color: #6e6e6e;
+		background-color: #ffffff;
+
+	}
+	.segment-ios .segment-button.segment-activated {
+		color: #ff9933;
+		background-color: #ffffff;
+		opacity: 1;
+		transition: 100ms all linear;
+		font-size: 1.3rem;
+	}
+	.selectMenu{ 
+		position:fixed;
+		 z-index: 10;
+		 top:86px;
+		 //display: flex;
+		  width: 100%;
+		 // height: 100%;
+		 
+
+	 //background:rgba(0, 0, 0, 0.3);
+	 background:transparent;
+	}
+	.selectMenumain{position: absolute; display: flex; z-index: 100000;}
+	ion-segment { border-bottom: #d6d5d6 1px solid; border-top: #d6d5d6 1px solid;}
+	.segment-ios .segment-button:last-of-type {border-radius: 0 ;  }
+	.segment-ios .segment-button:first-of-type { border-radius: 0;}
+	.segment-ios .segment-button ion-icon {font-size: 1rem;line-height: 2.8rem;  }
+
+	ion-grid{height: 50%; max-height: 0; transition: all .4s ease;
+		&.show{
+			max-height: 50%;
+		}
+	}
+
+	.ion-note-p{ line-height: 1.5rem;}
+	.ion-note-p span{ color: #52a7ff; font-weight: bold;}
+
+	ion-list:first-child { margin-top: 32px; }
+	ion-list { margin-top: 0; }
+
+	.markcheakladel{ background: rgba(0,0,0,0);}
+	.markcheakladel.item-ios.item-block .item-inner {
+		border-bottom: 0px solid #c8c7cc;
+		color: #999;
+		font-size: 1.5rem;
+	}
+	.ion-label_right{ text-align: right}
+	.card-ios { margin: 0px 12px 12px 12px;  }
+
+	.ard-header_color{ color: #52a7ff;}
+
+	.card-footer-row{
+		align-items: center;
+		border-top: 1px solid #d6d5d6;
+	}
+	.card .note-ios {
+		font-size: 1.5rem;
+	}
+	.card-content-ios {
+		line-height: .6;
+	}
+	.iod-card-scord{width: calc(50vw - 24px); float: left;}
+	.list-ios {
+		overflow:hidden;
+		margin: -1px 0 10px 0;
+	}
+
+	/*add by leo 20170414 for back drop*/
+	.backdrop{
+		touch-action: none;
+		z-index: -1;
+		background: rgba(0, 0, 0, 0);
+		// @include transition(background,.3s);
+		&.active{
+			opacity:1;
+			background: rgba(0, 0, 0, 0.26);
+			z-index:9;
+		}
+
+	}
+	.refresher-pulling-text, .refresher-refreshing-text {
+		font-size: 16px;
+		text-align: center;
+		color: #b3b3b3;
+	}
+}
+.picker-ios .picker-button, .picker-ios .picker-button.activated {color: #ff9933;  }

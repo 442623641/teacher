@@ -1,0 +1,51 @@
+<ion-header no-shadow>
+  <ion-navbar>
+    <ion-title>输入新密码</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <!--  <div class="main_pass">
+    <div class="listDetail xiugai">
+      <div class="listHang">
+        <p class="fl boldzi" style=" margin-top: 3px;">新密码：</p>
+        <input class="fl" type="password" [(ngModel)]="pass.password" name="password" placeholder="输入新密码"/>
+      </div>
+      <div class="fl listHang">
+        <p class="fl boldzi" style=" margin-top: 2px;">确认密码：</p>
+        <input class="fl" type="password" [(ngModel)]="pass.newpassword" name="newpassword"  placeholder="重新输入"/>
+        <p class="fl mainOrange" style=" width: 80px"></p>
+      </div>
+
+      <button  type="submit" class="button" (click)="changepassWrod()">
+        <span>修改</span>
+        <ion-spinner *ngIf="spinner" name="crescent"></ion-spinner>
+      </button>
+    </div>
+
+
+  </div> -->
+  <form (ngSubmit)="changepassWrod()" style="margin-top:12%">
+    <ion-item padding-right>
+      <ion-label color="dark3" fixed>新密码</ion-label>
+      <ion-input placeholder="输入新密码" min="6" max="50" type="password" [(ngModel)]="pass.password" name="password">
+      </ion-input>
+    </ion-item>
+    <ion-item padding-right>
+      <ion-label color="dark3" fixed>确认密码</ion-label>
+      <ion-input max="6" type="number" type="password" [(ngModel)]="pass.newpassword" name="newpassword"  placeholder="重新输入" min="6" max="50"></ion-input>
+      <button item-right 
+      (click)="getvcode()" 
+      [disabled]="buttonDisabled" 
+      color="yellow" 
+      class="{{maincolor}}"
+      ion-button input-button-right clear>{{_vcodeStr}}</button>
+    </ion-item>
+    <ion-row padding style="margin-top:56px;">
+        <button type="submit" ion-button color="dark4" block>
+          <span>修改</span>
+          <ion-spinner *ngIf="spinner" name="crescent"></ion-spinner>
+        </button>
+    </ion-row>
+  </form>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header no-shadow>
+    <ion-navbar>
+        <ion-title>意见反馈</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="main">
+        <div class="jianyi">
+            <textarea placeholder="请输入您的宝贵建议..." [(ngModel)]="txtContent" (keyup)="getContent()" maxlength="300"></textarea>
+            <span class="zinum">{{_n_length}}/{{_length}}</span>
+        </div>
+
+    </div>
+
+    <button  type="submit" class="button" (click)="submitFeed()">
+    <span>提交</span>
+    </button>
+</ion-content>

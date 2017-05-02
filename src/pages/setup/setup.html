@@ -1,0 +1,28 @@
+<ion-header no-shadow>
+    <ion-navbar>
+        <ion-title>设置</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list no-border>
+    <div style=" height: 15px;"></div>
+    <button ion-item no-border item-inner_line (click)="getVersion()">
+        检查更新
+        <div item-content style=" color: silver">当前版本{{_version}}</div>
+    </button>
+    <!--<button ion-item no-border item-inner_line (click)="callPhone()">-->
+
+        <!--清除缓存-->
+        <!--<div item-content style=" color: silver">56M</div>-->
+    <!--</button>-->
+    <div style=" height: 25px;"></div>
+    <button ion-item no-border item-inner_line (click)="goaboutPage()">
+        关于七天
+    </button>
+    <div style=" height: 100%;"></div>
+        <button  type="submit" class="button" (click)="  logout()">
+            <span>退出登录</span>
+        </button>
+</ion-list>
+</ion-content>

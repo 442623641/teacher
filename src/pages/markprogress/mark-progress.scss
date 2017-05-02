@@ -1,0 +1,59 @@
+mark-progress{
+	ion-scroll{
+		height:calc(100vh - 85px);
+		height:-webkit-calc(100vh - 85px);
+		.list{
+			min-height:calc(100vh - 140px);
+			min-height:-webkit-calc(100vh - 85px);
+		}
+	}
+	.labels{
+		color:color($colors,grayd6);
+	}
+	.item ion-icon {
+	   font-size: 1.6rem;
+	}
+	.toolbar .segment-button {
+	    max-width:50%;
+	}
+	.progress-outer {
+			margin: 0;
+			padding: 0;
+	        background-color: color($colors, grayd6);
+	        color: #fff;
+		    font-size: 1.6rem;
+		    height:2em;
+
+	    }
+    .progress-inner {
+    	margin: 0;
+    	// padding-left:1em;
+    	width:100%;
+    	max-width:0;
+    	height:100%;
+    	line-height: 2em;
+        white-space: nowrap;
+        background-color: color($colors, blue);
+        @include transition(max-width,.4s); 
+        span{
+        	padding-left: 1em;
+        }
+    }
+    /*评分曲线*/
+    .quTit {
+    	font-size: 1.6rem;
+	    height: 2.75em;
+	    line-height: 2.75em;
+	    & span:nth-child(2) {
+		    color: #fff;
+		    background: #4a4c5b;
+		    font-size: 0.8125em;
+		    padding: 2px 2.66%;
+		    margin-left: 0.75em;
+		    border-radius: 2px;
+		}
+		& span:nth-child(1) {
+	    	font-weight: bold;
+		}
+	}
+}

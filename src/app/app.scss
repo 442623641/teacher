@@ -1,0 +1,757 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+//@charset "utf-8";
+/* CSS Document */
+
+//.bg-white{background:#fff !important;}
+
+.red{
+	color:rgba(255, 82, 93, .8);
+}
+.blue{
+	color:rgba(82, 167, 255, .8);
+}
+.green{
+	color:rgba(82, 183, 134, .8);
+}
+
+.fl{float:left;}
+.fr{float:right;}
+.mainOrange{color:#ff7d2d;}
+.mainBlue{color:#4a4c5b;}
+.mainGray{color:#333;}
+
+.redbg{background:#ff525d;}
+
+.bluebg{background:#52a7ff;}
+
+.greenbg{background:#52b786;}
+
+/*  tabs style added by leo 201704207212001*/
+
+.input-wrapper ~ button[input-button-right]{
+  right: -8px;
+  max-width: 100px;
+  font-size: 1.4rem;
+  /* background: transparent; */
+  margin-right: 0;
+  padding-right: 0;
+}
+.item ion-label[fixed][w-80] {
+    -webkit-flex: 0 0 80px;
+    -ms-flex: 0 0 80px;
+    flex: 0 0 80px;
+    width: 80px;
+    min-width: 80px;
+    max-width: 200px;
+}
+/*  added by leo 201702027212001*/
+.has-refresher > .scroll-content {
+    transition: -webkit-transform 520ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition: transform 600ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition: transform 600ms cubic-bezier(0.36, 0.66, 0.04, 1), -webkit-transform 600ms cubic-bezier(0.36, 0.66, 0.04, 1);
+}
+.refresher-pulling-icon{
+    transition: 500ms;
+}
+.tab-button-text, .tab-button-icon{
+  overflow:visible;
+}
+
+::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+  }
+[header-shadow]{
+	 box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+[ion-button][disabled]:not([clear]){
+  background:color($colors,disabled);
+  color: #000;
+}
+ion-loading ion-backdrop{
+    opacity: .01 !important;
+    touch-action:none;
+}
+
+/* 侧边栏 added by leo 201702027212001*/
+/* Mixins */
+.wrap{
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  } 
+.embedded{
+	z-index:99999 !important;
+}
+[text-nowrap]{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.button-inner{
+	@extend .wrap;
+  //display:block;
+}
+/* affix header added by leo 201703080212001*/
+.affix-header{
+	opacity: 0;
+	-webkit-opacity: 0;
+	transition: opacity 400ms ease;
+		-webkit-transition: -webkit-opacity 400ms ease;
+		display: none;		
+}
+.affix-header.active{
+		opacity: .7;
+		-webkit-opacity: .8;
+   		display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	}
+.input .text-input-clear-icon {
+    background-color: transparent;
+}
+/*自定义图标 added by leo 201703081744002*/
+
+@font-face {font-family: "Ionicons";
+  src: url('../assets/ifont/iconfont.eot?t=1488354573600'); /* IE9*/
+  src: url('../assets/ifont/iconfont.eot?t=1488354573600#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../assets/ifont/iconfont.woff?t=1488354573600') format('woff'), /* chrome, firefox */
+  url('../assets/ifont/iconfont.ttf?t=1488354573600') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../assets/ifont/iconfont.svg?t=1488354573600#iconfont') format('svg'); /* iOS 4.1- */
+}
+@font-face {
+  font-family: 'Ionicons';
+  src: url('../assets/ifont2/iconfont.eot');
+  src: url('../assets/ifont2/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../assets/ifont2/iconfont.woff') format('woff'),
+  url('../assets/ifont2/iconfont.ttf') format('truetype'),
+  url('../assets/ifont2/iconfont.svg#Ionicons') format('svg');
+}
+
+ion-icon {
+  display: inline-block;
+  font-family: "Ionicons";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  text-transform: none;
+  speak: none;
+  //font-size:16px;
+  -webkit-text-stroke-width: 0.2px;
+
+}
+.ion-md-imarking:before,
+.ion-ios-imarking:before,
+.ion-wp-imarking:before,
+
+.ion-ios-imarking-outline:before,
+.ion-wp-imarking-outline:before,
+.ion-ios-imarking-outline:before,
+ { content: "\e608"; }
+/*.icon-icon_yuejuan1:before { content: "\e60e"; }*/
+.ion-md-imark:before,
+.ion-ios-imark:before,
+.ion-wp-imark:before,
+
+.ion-ios-imark-outline:before,
+.ion-wp-imark-outline:before,
+.ion-ios-imark-outline:before,
+ { content: "\e60e"; }
+/*.icon-icon_hui:before { content: "\e60b"; }*/
+.ion-md-iremarking:before,
+.ion-ios-iremarking:before,
+.ion-wp-iremarking:before,
+
+.ion-md-iremarking-outline:before,
+.ion-ios-iremarking-outline:before,
+.ion-wp-iremarking-outline:before,
+{ content: "\e60b"; }
+
+/*.icon-icon_jiang:before { content: "\e611"; }*/
+.ion-md-ipaper:before,
+.ion-ios-ipaper:before,
+.ion-wp-ipaper:before,
+
+.ion-md-ipaper-outline:before,
+.ion-ios-ipaper-outline:before,
+.ion-wp-ipaper-outline:before,
+{ content: "\e611";  }
+/*.icon-icon_phone:before {
+    content: "\e617";
+}*/
+.ion-md-iphone:before,
+.ion-ios-iphone:before,
+.ion-wp-iphone:before,
+
+.ion-md-iphone-outline:before,
+.ion-ios-iphone-outline:before,
+.ion-wp-iphone-outline:before,
+{ content: "\e617"; }
+/*.icon-icon_order:before {
+    content: "\e617";
+}*/
+.ion-md-iorder:before,
+.ion-ios-iorder:before,
+.ion-wp-iorder:before,
+
+.ion-md-iorder-outline:before,
+.ion-ios-iorder-outline:before,
+.ion-wp-iorder-outline:before,
+{ content: "\e619";font-size:2.2rem; }
+/*.icon-icon_answer:before { content: "\e60f"; }*/
+.ion-md-ianswer:before,
+.ion-ios-ianswer:before,
+.ion-wp-ianswer:before,
+
+.ion-md-ianswer-outline:before,
+.ion-ios-ianswer-outline:before,
+.ion-wp-ianswer-outline:before,
+{ content: "\e60f"; }
+/*.icon-icon_yuejuan:before { content: "\e610"; }*/
+.ion-md-iscoring:before,
+.ion-ios-iscoring:before,
+.ion-wp-iscoring:before,
+.ion-md-iscoring-outline:before,
+.ion-ios-iscoring-outline:before,
+.ion-wp-iscoring-outline:before,
+{ content: "\e610"; }
+
+/*.icon-icon_password:before { content: "\e61c"; }*/
+.ion-md-ipassword:before,
+.ion-ios-ipassword:before,
+.ion-wp-ipassword:before,
+.ion-md-ipassword-outline:before,
+.ion-ios-ipassword-outline:before,
+.ion-wp-ipassword-outline:before,
+{ content: "\e61c"; font-size: 18px;  }
+
+/*.icon-icon_my:before { content: "\e61d"; }*/
+.ion-md-imy:before,
+.ion-ios-imy:before,
+.ion-wp-imy:before,
+.ion-md-imy-outline:before,
+.ion-ios-imy-outline:before,
+.ion-wp-imy-outline:before,
+{ content: "\e61d";  }
+
+//.icon-icon_yijian:before { content: "\e621"; }
+.ion-md-iyijian:before,
+.ion-ios-iyijian:before,
+.ion-wp-iyijian:before,
+.ion-md-iyijian-outline:before,
+.ion-ios-iyijian-outline:before,
+.ion-wp-iyijian-outline:before,
+{ content: "\e621"; font-size: 16px; }
+
+//.icon-icon_telephone:before { content: "\e620"; }
+.ion-md-itelephone:before,
+.ion-ios-itelephone:before,
+.ion-wp-itelephone:before,
+.ion-md-itelephone-outline:before,
+.ion-ios-itelephone-outline:before,
+.ion-wp-itelephone-outline:before,
+{ content: "\e620"; font-size: 17px; }
+
+//.icon-icon_myset:before { content: "\e61e"; }
+.ion-md-imyset:before,
+.ion-ios-imyset:before,
+.ion-wp-imyset:before,
+.ion-md-imyset-outline:before,
+.ion-ios-imyset-outline:before,
+.ion-wp-imyset-outline:before,
+{ content: "\e61e"; font-size: 19px; }
+
+/* added by leo 201703111605001*/
+//.ion-ihelp:before { content: "\e718"; }
+.ion-md-ihelp:before,
+.ion-ios-ihelp:before,
+.ion-wp-ihelp:before,
+.ion-md-ihelp-outline:before,
+.ion-ios-ihelp-outline:before,
+.ion-wp-ihelp-outline:before,
+{ content: "\e718"; }
+
+// .ion-md-arrow-back:before,
+// .ion-ios-arrow-back:before,
+// .ion-wp-arrow-back:before,
+// .ion-md-arrow-back-outline:before,
+// .ion-ios-arrow-back-outline:before,
+// .ion-wp-arrow-back-outline:before
+// { content: "\e707"; }
+
+.ion-md-iexit:before,
+.ion-ios-iexit:before,
+.ion-wp-iexit:before,
+.ion-md-iexit-outline:before,
+.ion-ios-iexit-outline:before,
+.ion-wp-iexit-outline:before 
+{ content: "\e702"; }
+
+.ion-md-ilock:before,
+.ion-ios-ilock:before,
+.ion-wp-ilock:before,
+.ion-md-ilock-outline:before,
+.ion-ios-ilock-outline:before,
+.ion-wp-ilock-outline:before 
+{ content: "\e72d"; }
+
+.ion-md-inext:before,
+.ion-ios-inext:before,
+.ion-wp-inext:before,
+.ion-md-inext-outline:before,
+.ion-ios-inext-outline:before,
+.ion-wp-inext-outline:before 
+ { content: "\e734"; }
+
+.ion-md-iisetting:before,
+.ion-ios-iisetting:before,
+.ion-wp-iisetting:before,
+.ion-md-iisetting-outline:before,
+.ion-ios-iisetting-outline:before,
+.ion-wp-iisetting-outline:before 
+{ content: "\e715"; }
+
+.ion-md-iexception:before,
+.ion-ios-iexception:before,
+.ion-wp-iexception:before,
+.ion-md-iexception-outline:before,
+.ion-ios-iexception-outline:before,
+.ion-wp-iexception-outline:before 
+{ content: "\e714"; }
+
+.ion-md-i7:before,
+.ion-ios-i7:before,
+.ion-wp-i7:before,
+.ion-md-i7-outline:before,
+.ion-ios-i7-outline:before,
+.ion-wp-i7-outline:before 
+
+// { content: "\e709"; }
+{ content: "\e72a"; }
+.ion-md-itriangle-radius:before,
+.ion-ios-itriangle-radius:before,
+.ion-wp-itriangle-radius:before,
+.ion-md-itriangle-radius-outline:before,
+.ion-ios-itriangle-radius-outline:before,
+.ion-wp-itriangle-radius-outline:before
+{ content: "\e78e"; }
+
+.ion-md-imenu:before,
+.ion-ios-imenu:before,
+.ion-wp-imenu:before,
+.ion-md-imenu-outline:before,
+.ion-ios-imenu-outline:before,
+.ion-wp-imenu-outline:before
+{ content: "\e708"; }
+
+.ion-md-iuser:before,
+.ion-ios-iuser:before,
+.ion-wp-iuser:before,
+.ion-md-iuser-outline:before,
+.ion-ios-iuser-outline:before,
+.ion-wp-iuser-outline:before
+{ content: "\e749"; }
+
+.ion-md-itriangle:before,
+.ion-ios-itriangle:before,
+.ion-wp-itriangle:before,
+.ion-md-itriangle-outline:before,
+.ion-ios-itriangle-outline:before,
+.ion-wp-itriangle-outline:before
+{ content: "\e733"; }
+
+.ion-md-ieye:before,
+.ion-ios-ieye:before,
+.ion-wp-ieye:before,
+.ion-md-ieye-outline:before,
+.ion-ios-ieye-outline:before,
+.ion-wp-ieye-outline:before
+{ content: "\e71d"; }
+
+.ion-md-arrow-forward:before,
+.ion-ios-arrow-forward:before,
+.ion-wp-arrow-forward:before,
+.ion-md-arrow-forward-outline:before,
+.ion-ios-arrow-forward-outline:before,
+.ion-wp-arrow-forward-outline:before
+{ content: "\e741"; }
+
+.ion-md-submit:before,
+.ion-ios-submit:before,
+.ion-wp-submit:before,
+.ion-md-submit-outline:before,
+.ion-ios-submit-outline:before,
+.ion-wp-submit-outline:before
+{ content: "\e7c0"; }
+
+
+.ion-md-close:before,
+.ion-ios-close:before,
+.ion-wp-close:before,
+.ion-md-close-outline:before,
+.ion-ios-close-outline:before,
+.ion-wp-close-outline:before
+{ content: "\e701"; }
+
+.ion-md-iarrow-down:before,
+.ion-ios-iarrow-down:before,
+.ion-wp-iarrow-down:before,
+.ion-md-iarrow-down-outline:before,
+.ion-ios-iarrow-down-outline:before,
+.ion-wp-iarrow-down-outline:before
+{ content: "\e733"; }
+
+.ion-md-iunconnect:before,
+.ion-ios-iunconnect:before,
+.ion-wp-iunconnect:before,
+.ion-md-iunconnect-outline:before,
+.ion-ios-iunconnect-outline:before,
+.ion-wp-iunconnect-outline:before
+{ content: "\e710"; }
+
+.ion-md-inetwork:before,
+.ion-ios-inetwork:before,
+.ion-wp-inetwork:before,
+.ion-md-inetwork-outline:before,
+.ion-ios-inetwork-outline:before,
+.ion-wp-inetwork-outline:before
+{ content: "\e70d"; }
+
+.ion-md-inetwork:before,
+.ion-ios-inetwork:before,
+.ion-wp-inetwork:before,
+.ion-md-inetwork-outline:before,
+.ion-ios-inetwork-outline:before,
+.ion-wp-inetwork-outline:before
+{ content: "\e70d"; }
+
+.ion-md-imarkback:before,
+.ion-ios-imarkback:before,
+.ion-wp-imarkback:before,
+.ion-md-imarkback-outline:before,
+.ion-ios-imarkback-outline:before,
+.ion-wp-imarkback-outline:before
+{ content: "\e61a"; font-size: 1.8rem; line-height: 25px;}
+
+
+/*end*/
+
+/* infinite scroll style added by leo 201703111005001*/
+ion-infinite-scroll-content{
+	min-height:3.2rem;
+}
+.has-infinite-scroll{
+  .infinite-loading {
+    margin: 0 0 5px 0;
+  }
+  .list{
+    margin-bottom:10px;
+  }
+}
+
+//.infinite-loading-spinner .spinner,refresher-refreshing-icon,.spinner{
+//	height:22px;
+//	width:22px;
+//}
+
+.page-loading{
+	position: absolute;
+    top: 30%;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+//.refresher-pulling-text,
+//.refresher-refreshing-text {
+//  font-size: $refresher-text-font-size;
+//  text-align: center;
+//  color: $refresher-text-color;
+//  transform-origin: center;
+//  -webkit-transform-origin: center;
+//  transition:transform 200ms ease;
+//  -webkit-transition:-webkit-transform 200ms ease;
+//}
+//ion-refresher-content[state=completing],ion-refresher-content[state=cancelling] {
+//  .refresher-refreshing-text,.refresher-pulling-text{
+//      transform: scale(0);
+//      -webkit-transform: scale(0);
+//  }
+//}
+//.refresher-pulling {
+//  width: 90px;
+//  margin: 0 auto;
+//}
+//.refresher-pulling-icon{
+//  float:left;
+//  padding:5px;
+//}
+//[state=ready] .refresher-pulling-icon{
+//  padding:0 5px 0 0;
+//}
+//.refresher-pulling-text{
+//  float: left;
+//  line-height: 36px;
+//}
+/*end*/
+
+/* gloabal style of padding,margin added by leo 201703111405001*/
+[padding-10]{
+	padding:12px
+}
+[padding-bottom-10]{
+  padding:0 0 12px 0;
+}
+[padding-vertical-10]{
+	padding:12px 0;
+}
+[padding-top-10]{
+  padding:10px 0 0 0;
+}
+[padding-horizontal-10]{
+	padding:0 12px;
+}
+[margin-10]{
+	margin:12px;
+}
+[margin-vertical-10]{
+	margin:12px 0;
+}
+[margin-horizontal-10]{
+	margin:0 12px;
+}
+[text-strong]{
+	font-weight:bold;
+}
+/*end*/
+/* gloabal style of font color added by leo 201703111405001*/
+
+.content{
+	color:color($colors,dark3);
+	background:color($colors,background);
+}
+/*end*/
+
+/*transition add by leo 201703131418001*/
+@mixin transition($type,$speed) {
+	-webkit-transition: -webkit-$type $speed ease;
+	-moz-transition: -moz-$type $speed ease;
+	transition: $type $speed ease;
+}
+
+/*end*/
+@mixin flex($width) {
+  -webkit-flex: 0 0 $width;
+      -ms-flex: 0 0 $width;
+      flex: 0 0 $width;
+      width: $width;
+      max-width: $width;
+}
+ /* toolbar style leo 201703141636002*/
+ 	.header{
+		.segment-md-dark{
+			.segment-button.segment-activated {
+				border-color:color($colors,yellow);
+				color:color($colors,yellow);
+			}
+		}		
+
+		.toolbar .toolbar-background{
+			border:none !important;
+		}
+		&>ion-toolbar{
+			border-top: 1px solid rgba(214, 213, 214, 1);
+      // padding-top: 2px;
+		}
+	}
+  ion-header>ion-toolbar.toolbar{
+  	min-height:40px;
+  }
+  .segment-button.segment-activated,.segment-button.segment-active{
+    border:none;
+  }
+  ion-segment {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
+  }
+  .tabbar{
+    opacity: 1;
+  }
+ /*end*/
+ /*directive styke*/
+ [rotate] .icon{
+    padding: .1em;
+    @include transition(transform,0.5s);
+ }
+ /*end */
+
+ /* ripple effect add by leo 2017042601614*/
+// .ripple {
+//   overflow: hidden;
+// }
+
+// .ripple-effect {
+//   position: absolute;
+//   border-radius: 50%;
+//   width: 20px;
+//   height: 20px;
+//   background: white;
+
+//   animation: ripple-animation 1.2s;
+// }
+
+// @keyframes ripple-animation {
+//   from {
+//     -webkit-transform: scale(.8);
+//     transform: scale(.8);
+//     opacity: 0.6;
+//   }
+//   to {
+//     -webkit-transform: scale(100);
+//     transform: scale(100);
+//     opacity: 0;
+//   }
+// }
+
+// a.button.ripple {
+//   overflow: hidden;
+//   position: relative;
+//   transition: background-color 0.3s linear, border 0.3s linear;
+// }
+// a.button.ripple:after {
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   pointer-events: none;
+//   background-image: radial-gradient(circle, #fff 10%, rgba(0, 0, 0, 0) 10.01%);
+//   background-repeat: no-repeat;
+//   background-position: 50%;
+//   transform: scale(10);
+//   opacity: 0;
+//   transition: transform .8s, opacity 1s;
+// }
+// a.button.ripple:active:after {
+//   transform: scale(0);
+//   opacity: .6;
+//   transition: 0s;
+// }
+
+/* ripple end*/
+/* press effect progress*/
+.press-progress{
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  border-radius: 50%;
+  height: 47px;
+  width: 47px;
+  display: block;
+  position: absolute;
+  top:112vh;
+  left: 50%;
+  transform:translate(-50%,-50%) scale(0);
+  stroke: #fff;
+  cursor: pointer;
+  transition: .6s linear;
+  z-index:9;
+  ion-icon{
+    font-size: 32px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    line-height: 48px;
+    text-align: center;
+    color:color($colors,yellow);
+  }
+  &:active,&.activated{
+    will-change:transform top;
+    top:calc(100vh - 94px);
+    transform:translate(-50%,-50%) scale(1);
+    //opacity:1;
+  }
+  .progress {
+      fill:rgba(255,255,255,.1);
+      transition:3s cubic-bezier(1.020,0.145, 0.775, 0.165) .8s;
+      stroke-dasharray:0,120;
+
+  }
+  &.activated .progress,&:active .progress {
+      will-change:auto;
+      stroke-dasharray:120,120;
+      transition:3s cubic-bezier(0.165, 0.775, 0.145, 1.020) .8s;
+  }
+}
+.press-progress1{
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  border-radius: 50%;
+  height: 47px;
+  width: 47px;
+  display: block;
+  position: absolute;
+  top:80vh;
+  left: 50%;
+  transform:translate(-50%,-50%) scale(0);
+  stroke: #fff;
+  cursor: pointer;
+  transition: .6s linear;
+  z-index:9;
+  ion-icon{
+    font-size: 32px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    line-height: 48px;
+    text-align: center;
+    color:color($colors,yellow);
+  }
+    svg {
+        /* border: 3px solid #999; */
+        width: 47px;
+        height: 47px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        transform: rotate(-90deg);
+    }
+    circle {
+      fill: rgba(255,255,255,0.1);
+      stroke: rgba(255, 255, 255, 0.6);
+      stroke-width: 32;
+      stroke-dasharray: 0 100;
+      transition: stroke-dasharray 0.2s ease;
+      animation: spin 20s ease-out infinite;
+    }
+    @keyframes spin {
+      50% {
+        stroke-dasharray: 100 100;
+      }
+      100% {
+        stroke-dasharray: 0 100;
+      }
+    }
+
+}
+/*end */
+

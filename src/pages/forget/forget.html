@@ -1,0 +1,52 @@
+<ion-header no-shadow>
+  <ion-navbar>
+    <ion-title>找回密码</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <!-- <div class="main_pass">
+    <div class="listDetail xiugai">
+      <div class="listHang">
+        <p class="fl boldzi" style=" margin-top: 3px;">账号：</p>
+        <input class="fl" type="tel" type="text" [(ngModel)]="login.usercode" name="usercode" placeholder="输入手机号"/>
+      </div>
+      <div class="listHang">
+        <p class="fl boldzi" style=" margin-top: 2px;">验证码：</p>
+        <input class="fl" type="tel" [(ngModel)]="login.vcode" name="vcode" maxlength="6"/>
+
+        <button type="submit" class="fl {{maincolor}}" (click)="getvcode()" [disabled]="buttonDisabled"><span>{{_vcodeStr}}</span></button>
+      </div>
+
+      <button  type="submit" class="button" (click)="nextPage()">
+        <span>下一步</span>
+        <ion-spinner *ngIf="spinner" name="crescent"></ion-spinner>
+      </button>
+    </div>
+  </div>  -->
+   <!-- <form (ngSubmit)="nextPage()" style="margin-top:12%"> -->
+   <div style="margin-top:12%">
+    <ion-item padding-right>
+      <ion-label color="dark3" fixed w-80>账号</ion-label>
+      <ion-input placeholder="输入手机号" clearInput type="tel" [(ngModel)]="login.usercode" name="usercode">
+      </ion-input>
+    </ion-item>
+    <ion-item padding-right>
+      <ion-label color="dark3" fixed w-80>验证码</ion-label>
+      <ion-input max="6" type="number" [(ngModel)]="login.vcode" name="vcode"></ion-input>
+      <button item-right 
+      (click)="getvcode()" 
+      [disabled]="buttonDisabled" 
+      color="yellow" 
+      class="{{maincolor}}"
+      ion-button input-button-right clear>{{_vcodeStr}}</button>
+    </ion-item>
+    <ion-row padding style="margin-top:56px;">
+        <button type="submit" ion-button color="dark4" block (click)="nextPage()">
+          <span>下一步</span>
+          <ion-spinner *ngIf="spinner" name="crescent"></ion-spinner>
+        </button>
+    </ion-row>
+  </div>
+  <!-- </form> -->
+</ion-content>

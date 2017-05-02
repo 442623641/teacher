@@ -1,0 +1,191 @@
+
+paper-page {
+	.backdrop {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    //z-index: -1;
+	    display: block;
+	    width: 100%;
+	    height: 100%;
+	    background-color: #000;
+	    opacity: .01;
+	    touch-action: none;
+	    @include transition(opacity,0.5s);
+	    &.active{
+	    	z-index:12;
+	    	opacity:0.3;
+	    }
+	}
+	//$h:$toolbar-ios-height - $tabs-ios-tab-min-height;
+	.icontent{
+		margin-bottom:49px;
+		background:#f2f3f4;
+		margin-top: 45px;
+		padding: 0;
+		height: calc(100vh - 93px);
+		height: -webkit-calc(100vh - 93px);
+	}
+	&[hidden]{display:block !important;}
+	ion-navbar [end] .button-inner{ 
+		color: #333;
+	}
+	.detail .ion-ios-arrow-forward{
+	    vertical-align: middle;
+	    color: #adadad;
+	}
+	.card-header{
+		font-weight:bold;
+		font-size:1.6rem;
+	}
+	.card{
+		margin-top:0;
+		ion-card-content {
+			chart{
+				height:180px;
+				width:100%;
+
+			}
+		}
+		.card-footer{
+			border-top: 1px solid #d6d5d6;
+			font-size: 1.4rem ;
+			padding-top: 7px;
+			margin-top:0;
+		}
+		.button{
+			font-size: inherit;
+		}
+	}
+
+	.circle{
+		width: 0.83em;
+		height: 0.83em;
+		border-radius: 0.83em;
+		display: inline-block;
+		margin-right:4px;
+	}
+	.circle.blue{
+		background-color:#52a7ff;
+	}
+	.circle.red{
+		background-color:#ff525d;
+	}
+	.circle.green{
+		background-color:#52b786;
+	}
+
+/*
+
+	.examName{
+		height:2.86em;
+		line-height:2.86em;
+		font-size:0.875em;
+		margin-left:3.2%;
+		font-weight:bold;
+		width:100%;
+		padding-left:1em;
+		padding-right:1em;
+		@extend .wrap;
+		}
+
+	.picAnalyze{
+		background:#fff;
+		margin-bottom:0.75em;	
+		}
+
+	.progress{
+		height:2.75em;
+		line-height:2.75em;
+	}
+
+	.proTit{
+		font-weight:bold;
+		margin-left:3.2%;
+		}
+
+	.checkGrade{
+		float:right;
+		margin-right:3.2%;
+		}
+
+	.chartArea{
+		padding-bottom:1.375em;
+		}
+
+	.bargraph-big{
+		width:93.6%;
+		margin-left:3.2%;
+		margin-top:2.7em;
+		}
+		
+	.imgxiaoti{
+		width:50%;
+		margin-left:25%;
+		margin-top:1em;
+		}
+
+	.circle{
+		margin-left:3.2%;
+		}
+
+	.circle p{
+		float:left;
+		font-size:0.75em;
+		margin-right:3.33%;
+		}
+
+	.circle span{
+		width:0.83em;
+		height:0.83em;
+		border-radius:0.83em;
+		display:inline-block;
+		}
+
+	span.kong{
+		display:inline-block;
+		width:4px;
+		}
+
+	.daChart{
+		width:93.6%;
+		margin-left:3.2%;
+		background:#fff;
+		border-radius:3px;
+		box-shadow:0 0 10px rgba(0,0,0,0.12);
+		margin-top:1em;
+		}
+	.daChart:last-child {
+	    margin-bottom: 1em;
+	}
+	.picChart{
+		padding-top:1.5em;
+		padding-bottom:1em;
+		}
+
+	.piechart{
+		width:62.1%;
+		margin-left:19%;
+		}
+
+	.bargraph{
+		width:100%;
+		}
+
+	.detail{
+		margin-left:3.4%;
+		margin-right:3.4%;
+		border-top:1px solid #d6d5d6;
+		height:3.14em;
+		line-height:3.15em;
+		}
+
+	.detail p{
+		font-size:0.875em;
+		}
+
+	.detail .percent span{
+		margin-right:5px;
+		}
+		*/
+}

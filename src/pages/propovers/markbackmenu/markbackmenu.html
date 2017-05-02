@@ -1,0 +1,42 @@
+
+<ion-content fullscreen="true">
+	<button ion-button icon-only clear color="light" (click)="dismiss()">
+	<ion-icon name="close" ></ion-icon></button>
+    <div  align-items-center padding>
+		<ion-grid class="reverse" padding>
+			<h5 text-left padding-top margin-top padding-left>异常类型</h5>
+			<ion-row nowrap justify-content-start align-items-center >
+			 <ion-col col-2>
+			 <button ion-button outline mode="wp" color="white" [class.active]="exceptionItem=='答错区域'" style=" width: 100%"
+			 (click)="setException('答错区域')">答错区域</button>
+			 </ion-col>
+			 <ion-col col-2>
+			 <button  ion-button outline mode="wp" color="white"  [class.active]="exceptionItem=='图片模糊'" style=" width: 100%"
+					  (click)="setException('图片模糊')">图片模糊</button>
+			 </ion-col>
+				</ion-row>
+				<ion-row nowrap justify-content-start align-items-center >
+			 <ion-col col-2 >
+			 <button ion-button outline mode="wp" color="white" [class.active]="exceptionItem=='图片不全'"  style=" width: 100%"
+					 (click)="setException('图片不全')">图片不全</button>
+			 </ion-col>
+
+			<ion-col col-2>
+			 <button ion-button outline mode="wp" color="white" [class.active]="exceptionItem=='图片折叠'" style=" width: 100%"
+					 (click)="setException('图片折叠')">图片折叠</button>
+			 </ion-col>
+					</ion-row>
+			<ion-row nowrap justify-content-start align-items-center >
+			 <ion-col col-2>
+			 <button ion-button outline mode="wp" color="white" [class.active]="exceptionItem=='其他异常'" style=" width: 100%"
+					 (click)="setException('其他异常')">其他异常</button>
+			 </ion-col>
+			</ion-row>
+			<ion-row justify-content-center margin-vertical>
+			 <button ion-button color="dark4" col-2  margin-right style=" flex: 0 45.5%;" (click)="dismiss()">取消</button>
+			 <button ion-button color="yellow" col-2  margin-left style=" flex: 0 45.5%;" (click)="saveOptions()">确定</button>
+			</ion-row>
+		</ion-grid>
+
+	</div>
+</ion-content>

@@ -1,0 +1,44 @@
+paper[hidden]{
+	display: block !important;
+}
+page-paperoptions {
+	ion-backdrop{
+		@include transition(opacity,0.5s);
+	}
+	max-width: 486px !important;
+	width: 86% !important;
+	right: 0 !important;
+	left: initial !important;
+   .list{
+   		background-color:white;
+   		//min-height:100%;
+   }
+   ion-row{
+	   background:white;
+	   margin-bottom:28px;
+   }
+   
+	ion-content .button-inner{
+		display:block;
+		@extend .wrap;  	
+	}
+	.button:not([clear]){
+		margin-bottom: 0.857em;
+		border: 1px solid #d6d5d6;
+		    /* background-color: white; */
+		color: #333;
+		font-size: 0.875em;
+		height: 30px;
+	    line-height: 30px;
+	    border-radius: 2px;
+	    &.selected{
+			background:#4a4c5b !important;
+			color:#fff !important;
+		}
+	}
+	.col{
+   		.button{
+	    	margin:0;
+	    }
+	}
+}

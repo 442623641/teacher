@@ -1,0 +1,116 @@
+<!--
+  Generated template for the Marking page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+  style="transform: rotate(90deg);-webkit-transform: rotate(90deg);"
+-->
+<ion-content fullscreen="true" no-bounce>
+	<ion-row style="width: 100%;height: 100%" align-items-stretch *ngIf="preference&&subject">
+			<ion-scroll 
+			scrollY="true" 
+			class="side-scroll col-left"
+			#subjectContent>
+			<ion-list *ngIf="items.length">
+				<div class="subject-label" [style.top.px]="subjectLabelOffetTop">
+				    <ion-label no-margin>第{{ preference?.scopes[currentItemIndex].th}}题</ion-label>
+				    <ion-icon name="iarrow-down"></ion-icon>
+			    </div>
+				<div class="subject" *ngFor="let item of preference.scopes;let i=index;" 
+				(click)="itemTapped(i)" tappable>
+					<div>
+				        <ion-label no-margin>第{{item.th}}题</ion-label>
+				        <ion-icon name="iarrow-down"></ion-icon>
+			        </div>
+			        <div>   	
+			        	<p *ngFor="let score of subject.scores[i].siblings;let j=index;" >
+			        	{{j+1}} 评：{{score}}</p>
+			        </div>
+			        <!-- <p><rubber [text]="subject.scores[i].selftion"></rubber></p>  -->
+			        <!-- <p class="self">{{subject.scores[i].selftion}}</p>  -->
+			        <ripple-button class="self" [text]="subject.scores[i].selftion"></ripple-button>
+			    </div>
+			  </ion-list>
+			</ion-scroll>
+
+			<ion-col class="col-content" no-padding>
+				<virtual-slides 
+					[items]="items"
+					[total]="total"
+					[count]="count"
+					#virtualSlides>
+		        </virtual-slides>
+		       <ion-row class="footer" 
+				*ngIf="preference.scopes[currentItemIndex].tags.length||items[0].mess" >
+					<ion-chip *ngIf="items[0].mess" style="background: rgba(255, 125, 45, .8);">
+						<ion-label>{{items[0].mess}}</ion-label>
+					</ion-chip>
+					 <ion-chip *ngFor="let item of preference.scopes[currentItemIndex].tags" class="tags"
+					 tappable
+					 [class.active]="this.subject.scores[this.currentItemIndex].tags.indexOf(item)>-1"
+					 (click)="tagTapped(item)">
+					  <ion-label>{{item}}</ion-label>
+					</ion-chip>
+				</ion-row>
+			</ion-col>
+		<ion-col col-1 no-padding class="col-right">
+			<div text-center 
+			style="background:#101010;height: 45px;padding: 3px;color: #ff7d2d;" 
+			(click)="openPopoverMarkMenu($event)" tappable>
+				<p no-margin ><ion-icon name="imenu"></ion-icon></p>
+				<p no-margin style="font-size: 1.4rem">菜单</p>
+			</div>
+			<ion-scroll scrollY="true" 
+				#optionsContent
+				no-padding
+				style="height:calc(100vh- 46px);height:-webkit-calc(100vh - 46px);"
+				class="side-scroll">
+				<a soundable="keyboard">
+					<!-- <a class="button ripple" (click)="optionsTapped(item,$event)"
+					*ngFor="let item of localOptions" tappable>
+					{{item}}
+					
+					</a> -->
+					<button ion-button color="dark4" (click)="optionsTapped(item,$event)"
+					*ngFor="let item of localOptions" tappable>{{item}}</button>
+					<!-- <ripple-button (click)="optionsTapped(item,$event)"
+					*ngFor="let item of options" tappable [text]="item">
+					
+					</ripple-button> -->
+					<button ion-button color="black"  (click)="optionsTapped(item,$event)"
+					*ngFor="let item of options" tappable>{{item}}</button>
+				</a>
+			</ion-scroll>
+		</ion-col>
+	</ion-row>
+	<!-- [disabled]="buttonState=='disabled'"  -->
+	<ion-fab bottom style="right:70px">
+		<!-- <div ion-fab class="sweep" *ngIf="buttonState=='disabled'"></div> -->
+	   <button 
+	   	ion-fab
+	   	class="submit-button" 
+	    mode="md"
+	    [disabled]="buttonState=='disabled'"
+	    [class.active]="buttonState"
+	   	(click)="nextSubject()" >
+	   	<count-down 
+				*ngIf="buttonState!='processing'"
+				(onComplete)="timeEnd()" 
+				text="提交" 
+				[start]="remindTime">
+			</count-down>
+		<ion-spinner  name="crescent" color="white" *ngIf="buttonState=='processing'"></ion-spinner>
+		<!--  -->
+	   </button>
+	 </ion-fab>
+
+	<loading [error]="request"></loading>
+
+</ion-content>
+<!-- <button ion-button ripple style="position: absolute;z-index: 11">
+	   Content
+	</button> -->
+
+
+
+

@@ -1,0 +1,81 @@
+usercenter{
+
+  .touxiang{
+    padding:2.5em 0 1em 0;
+    width:100%;
+    text-align:center;
+  }
+
+  .touxiang img{border-radius:50%;}
+
+  .name{
+    font-size:1.125em;
+    font-weight:bold;
+    margin-top:0.5em;
+    margin-bottom:0.3em;
+  }
+
+  .school{
+    font-size:0.75em;
+    color:#999;
+  }
+
+  .listDetail{
+    margin-bottom:1.875em;
+  }
+
+  .listHang{
+    margin:0 6.4%;
+    height:3.0625em;
+    line-height:3.0625em;
+    border-bottom:1px solid #d6d5d6;
+  }
+
+  .listHang .icon{
+    margin-left:1.6%;
+    margin-right:2.67%;
+  }
+
+  [item-inner_line]{ border-bottom: solid 1px rgba(158, 158, 158, .3);}
+
+  ion-app, .content {
+    background:#ffffff;
+  }
+
+  .list-ios {
+    margin: -1px 12px 32px 12px;
+  }
+
+  .list-ios>.item-block:first-child {
+    border-top:none;
+  }
+  .list-ios>.item-block:last-child {
+    border-bottom: 0.55px solid rgba(158, 158, 158, .3) !important;
+  }
+  .list-ios .item-inner{
+    border-bottom: 0.55px solid rgba(158, 158, 158, .3) !important;
+  }
+
+  [no-border]>.item-inner {
+    border:none !important;
+  }
+
+
+  .list-ios > .item-block {
+    padding-left: 6px;
+  }
+  .item-ios ion-icon[item-left], .item-ios ion-icon[item-right] {
+   //margin-top: 0px;
+    //margin-bottom: 0px;
+    //margin-left: 0;
+    //margin-right: 0;
+    margin: 0px;
+    min-height: inherit;
+    line-height:50px;
+  }
+  .item-ios[detail-push] .item-inner, button.item-ios:not([detail-none]) .item-inner, a.item-ios:not([detail-none]) .item-inner {
+    background-position: right 3px center;
+  }
+  .input-wrapper{ margin-left: 4px;}
+
+}

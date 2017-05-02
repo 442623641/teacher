@@ -1,0 +1,70 @@
+page-welcome {
+	ion-slide{
+		height:100%;
+		weight:100vw;
+		background:#fff;
+		.slide-zoom{
+			height: 100%;
+		}
+	}
+	.qiTit{
+	font-size:1.5em;
+	margin-top:15%;
+	text-align:center;
+	}
+
+	.qiTu{
+		text-align:center;
+		margin-top:23%;
+		}
+
+	.qiTu .img01{
+		width:74.3%;
+		}
+
+	.qiCircle{
+		width:100%;
+		text-align:center;
+		position:fixed;
+		bottom:2.8125em;
+		}
+
+	// .quan{
+	// 	width:0.5em;
+	// 	height:0.5em;
+	// 	border-radius:0.5em;
+	// 	display:inline-block;
+	// 	}
+
+	// .grayCircle{
+	// 	background:#b2b2b2;
+	// 	}
+
+	// .orangeCircle{
+	// 	background:#ff7d2d;
+	// 	}
+
+	.qiTu .img02{
+		width:67.6%;
+		}
+
+	.qiTu .img03{
+		width:66.7%;
+		}
+
+	.tiyan{
+		margin: auto;
+		width:50.67%;
+		height:2.5em;
+		line-height:2.5em;
+		text-align:center;
+		color:#fff;
+		background:#ff7d2d;
+		border-radius:2px;
+	}
+	.swiper-pagination-bullet-active {
+	    opacity: 1;
+	    background: color($colors,yellow);
+	}
+
+}

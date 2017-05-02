@@ -1,0 +1,142 @@
+<ion-header header-shadow no-border>
+  <ion-navbar mode="ios">
+    <ion-title>阅卷</ion-title>
+  </ion-navbar>
+  <!--         (ionChange)="onSegmentChanged($event)" -->
+    <ion-toolbar no-padding no-border>
+        <ion-segment color="dark" mode="md"
+        tappable
+        no-border
+        (ionChange)="onSegmentChanged($event)"
+        [(ngModel)]="selectedSegment"
+        justify-content-around>
+          <ion-segment-button no-border *ngFor="let page of pages;let i=index;"
+            value={{i}}>
+            {{page}}
+          </ion-segment-button>
+        </ion-segment>
+        <elastic-line [ratio]="0.25" [progress]="selectedSegment"></elastic-line>
+      </ion-toolbar>
+</ion-header>
+    <ion-content>
+      <ion-refresher (ionRefresh)="doRefresh($event)" #refresh >
+      <ion-refresher-content
+          refreshingSpinner="ios-small"
+          pullingIcon="ios-arrow-round-down-outline">
+          </ion-refresher-content>
+      </ion-refresher>
+    <ion-slides 
+      (ionSlideDidChange)="onSlideChanged($event)" 
+      zoom="false"
+      autoHeight="true"
+      spaceBetween="10">
+      <ion-slide *ngFor="let task of tasks;let i=index;">
+         <div [ngSwitch]="i<2"
+         class="slide-content"
+         ionscroll
+         (onscrollTop)="enableRefresh($event)" *ngIf="task.length">
+        <div style="height: 16px;width: 100%;background: transparent;" showWhen="ios"></div>
+          <ion-list *ngSwitchCase="true">
+            <ion-card *ngFor="let item of task">
+                <ion-item class="card-header">
+                  {{item.examName}}
+                  <ion-note item-right color="gray6">
+                    {{item.km}}
+                  </ion-note>
+                </ion-item>
+                <ion-row padding-horizontal class="card-header-row" nowrap justify-content-between>
+                    <ion-col no-padding  col-4 class="wrap" text-left>题组:{{item.th}}</ion-col>
+                    <ion-col no-padding  col-4 class="wrap">老师: {{item.teacherCount}}名</ion-col>
+                    <ion-col no-padding  col-4 class="wrap" text-right>答卷: {{item.paperCount}}份</ion-col>
+                </ion-row>
+                <ion-card-content>
+                <ion-row justify-content-between align-items-stretch>
+                    <div class="progress-outer" col-8>
+                        <div class="progress-inner" [style.maxWidth]="item.total|progress:item.count">
+                            <span>您的阅卷进度：{{item.count}}/{{item.total}}</span>
+                        </div>
+                    </div>
+                    <button col-lg-1 ion-button outline no-margin no-padding color="yellow" class="ibutton"
+                    (click)="goProgressPage(item)">查看进度</button>
+                </ion-row> 
+              </ion-card-content>
+              <ion-row class="card-footer-row" >
+                <ion-col text-center *ngIf="item.count<item.total" no-padding>
+                  <button ion-button icon-left clear small 
+                  color="gray9" 
+                  (click)="goMarkingPage(item,selectedSegment)" tappable>
+                    <ion-icon name="imarking"></ion-icon>
+                    <div>阅卷</div>
+                  </button>
+                </ion-col>
+                <span></span>
+                <ion-col text-center *ngIf="item.count>0">
+                  <button ion-button icon-left clear small color="gray9" (click)="goMarkcheakPage(item)" tappable>
+                    <ion-icon name="iremarking" no-padding></ion-icon>
+                    <div> 回评</div>
+                  </button>
+                </ion-col>
+                <span></span>
+                <ion-col text-center no-padding>
+                  <button ion-button icon-left clear small color="gray9" (click)="checkAnswer(item)" tappable>
+                    <ion-icon name="ianswer"></ion-icon>
+                    <div>答案</div>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-list>
+
+          <ion-list *ngSwitchCase="false" padding-top-10>
+            <ion-card *ngFor="let item of task">
+                <ion-item class="card-header">
+                  {{item.examName}}
+                  <ion-note item-right color="gray6">
+                    {{item.km}}
+                  </ion-note>
+                </ion-item>
+                <ion-row padding-horizontal class="card-header-row" nowrap justify-content-start>
+                    <ion-col no-padding  col-6 class="wrap" text-left>题组:{{item.th}}</ion-col>
+                    <ion-col no-padding  col-4 class="wrap" text-right>答卷: {{item.paperCount}}份</ion-col>
+                </ion-row>
+                <ion-card-content>
+                <ion-row align-items-stretch>
+                    <div class="progress-outer" col-12>
+                      <div class="progress-inner" [style.maxWidth]="item.total|progress:item.count">
+                        <span>您的阅卷进度：{{item.count}}/{{item.total}}</span>
+                      </div>
+                    </div>
+                </ion-row>
+              </ion-card-content>
+              <ion-row class="card-footer-row" >
+                <ion-col text-center *ngIf="item.count<item.total" no-padding>
+                  <button ion-button icon-left clear small
+                  color="gray9" 
+                  (click)="goMarkingPage(item,selectedSegment)" tappable>
+                    <ion-icon name="imarking"></ion-icon>
+                    <div>阅卷</div>
+                  </button>
+                </ion-col>
+                <span></span>
+                <ion-col text-center *ngIf="item.count>0" no-padding>
+                  <button ion-button icon-left clear small color="gray9" (click)="goMarkcheakPage(item)" tappable>
+                    <ion-icon name="iremarking"></ion-icon>
+                    <div> 回评</div>
+                  </button>
+                </ion-col>
+                <span></span>
+                <ion-col text-center no-padding>
+                  <button ion-button icon-left clear small color="gray9" (click)="checkAnswer(item)" tappable>
+                    <ion-icon name="ianswer"></ion-icon>
+                    <div>答案</div>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-list>
+          </div>
+        </ion-slide>
+        </ion-slides>
+        <!-- <ion-backdrop  style="z-index: 5" *ngIf="refreshing"></ion-backdrop> -->
+      </ion-content>
+    <loading [error]="requests[selectedSegment]"></loading>

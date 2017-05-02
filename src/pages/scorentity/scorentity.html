@@ -1,0 +1,52 @@
+
+<ion-header no-shadow no-border>
+    <ion-navbar color="white">
+    <ion-title>
+      {{params.title}}
+    </ion-title>
+     <ion-buttons end>
+      <button ion-button icon-only tappable (click)="refresh()">
+      <ion-icon name="iorder"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar no-padding color="yellow" style="color: white;box-shadow: none;">
+    <div style="position:absolute;float:left;top: 0;width: 20%;line-height: 2.5em;text-align: center;" >
+    <span>{{subjects.length?'姓名':""}}</span></div>
+    <ion-slides #headerSlide slidesPerView="{{viewLength}}" zoom="false" freeMode="true"
+    style="height: 2em;float:right;width: 80%;">
+        <ion-slide *ngFor="let subject of subjects;let i=index;">
+            <span>{{subject}}</span>
+        </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding-vertical>
+    <div *ngIf="subjects.length">
+      <div [style.minHeight]="height"
+      [class.active]="sliding" 
+      tappable
+      (click)="sliding=!sliding"
+      class="col-name" no-padding>
+          <p *ngFor="let item of items">{{item.name}}</p>
+      </div>
+      <!-- (ionSlideDrag)="slideDrag($event)" -->
+     <ion-slides #contentSlide [style.minHeight]="height" zoom="false" freeMode="true"
+     slidesPerView="{{viewLength}}" style="float:right;width: 80%;"
+     (ionSlideNextStart)="ionSlideNextStart($event)"
+     (ionSlidePrevEnd)="ionSlidePrevEnd($event)"
+    (ionSlideTouchEnd)="slideDrag($event)">
+        <ion-slide  *ngFor="let subject of subjects;let i=index;" style="display:inline-block;" >
+          <p *ngFor="let item of items">{{item.scores[i]}}</p>
+        </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" 
+  *ngIf="items.length<all" threshold="90%">
+   <ion-infinite-scroll-content loadingSpinner="ios-small"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <loading [error]="request"></loading>
+  
+</ion-content>

@@ -1,0 +1,177 @@
+
+page-markback {
+
+	/*3-05-回评阅卷 开始*/
+	.swiper-slide{
+		color:#fff;
+	}
+
+	.tiList{
+		min-width:110px;
+		background:#333;
+		float: left;
+	}
+
+	.tiListHot{
+		background:#1f1f1f;
+	}
+
+	.tinum{
+		height:2.643em;
+		line-height:2.286em;
+		font-size:0.875em;
+		width: 100%;
+	}
+
+	.tinum .haoma{
+		background:#4a4c5b;
+		text-align:center;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	/*.tiListHot .tinum{
+        background:#ff525d;
+        }
+    */
+	.tiListHot .haoma{
+		background:#ff525d;
+		text-align:center;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.tinum .sanjiao{
+		width: 0;
+		height: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 5px solid #4a4c5b;
+		margin: 0 auto;
+		padding: 0px;
+	}
+
+	.tiListHot .sanjiao{
+		width: 0;
+		height: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 5px solid #ff525d;
+		margin: 0 auto;
+		padding: 0px;
+	}
+
+
+
+	.ping{
+		text-align:center;
+		height:2em;
+		line-height:2em;
+		font-size:0.875em;
+		float: left;
+		width:100%;
+	}
+
+	.tiListHot .ping{
+		background:#1f1f1f;
+	}
+
+
+	/*3-05-回评阅卷 结束*/
+
+
+	.toolbar-background-ios {
+		background: #333;
+	}
+
+	.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+		color: #fff;
+	}
+	.toolbar-title-ios {  color: #fff;  }
+
+	ion-header > ion-toolbar.toolbar {
+		padding: 0px;
+		border: 0px solid;
+	}
+	.action-sheet-ios .action-sheet-button {
+		color: #000;
+
+	}
+
+	.col {
+		text-align: center;
+		line-height: 36px;
+		-webkit-highlight:36px;
+		padding: 0px;
+		border-right: 1px solid #e6e7e8;
+	}
+	.col:last-child{border-right: 0px solid;}
+	.col.ion-col-th{border-right: 0px solid;}
+	.row{
+		border-bottom: 1px solid #e6ebf5;
+		text-align: center;
+
+	}
+	.row:last-child{border-bottom: 0px solid;}
+	.keybraod{ line-height: 147px;}
+	.keybraod.iosblue{ background: #ff7d2d; color: #fff;}
+	.keybraod-input{ line-height: 32px; padding-left: 12px; color:#6e6e6e; font-size: 12px; width: 100%}
+	.keybraod-input span{ color:#ff7d2d; font-weight: bold}
+
+	.chip{
+			margin:5px;
+			background:rgba(0, 0, 0, 0.6);
+			font-size:1.2rem;
+			height: 24px;
+			line-height:24px;
+			font-weight: 600;
+			color:#fff;
+			min-width: calc((100vw - 30px)/3);
+		min-width: -webkit-calc((100vw - 30px)/3);
+			&.active{
+				background:rgba(0,0,0,.8);
+			}
+		}
+	.chipactive{
+		background:rgba(255, 82, 93, 0.8);
+		//background: #ff525d;
+	}
+	.tags_float{
+		position:fixed;
+		bottom:148px;
+		z-index: 1;
+
+
+	}
+	//.toggle{ width: 50px; position:fixed; right: 5px;bottom:152px;}
+	.keybraod-input-left{ width: 80%; float: left; text-align: left}
+	.keybraod-input-right{ width: 18%; float: right; padding-top: 4px;}
+
+
+
+}
+.popover-ios .popover-content {
+	width: 100%;
+	min-width: 0;
+	min-height: 0;
+	max-height: 100%;
+	border-radius: 0px;
+	color: #000;
+	background: rgba(0, 0, 0, 0.88);
+	left: 0 !important;
+}
+.action-sheet-ios .action-sheet-button {
+	color:#585a68;
+}
+.alert-ios [aria-checked=true] .alert-radio-label {
+	color: #ff7d2d;
+}
+.alert-ios [aria-checked=true] .alert-radio-inner {
+	border-color: #ff7d2d;
+}
+.alert-ios .alert-radio-label {
+	color: #777676;
+}
+.popover-ios .popover-content {
+	left:0px;
+}

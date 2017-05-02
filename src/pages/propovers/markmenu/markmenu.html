@@ -1,0 +1,136 @@
+
+<ion-content fullscreen="true" no-bounce>
+	<!-- <div class="scroll-content"> -->
+	<button ion-button icon-only clear color="light" (click)="dismiss()" style="position: absolute;z-index: 201">
+	<ion-icon name="close" ></ion-icon></button>
+    <div class="box"  [class.flip]="flip" align-items-center padding>
+		<ion-grid class="front" padding-right>
+			<ion-row margin-top justify-content padding>
+				<ion-col text-center (click)="nextSubject()" col-4>
+					<!-- <ion-icon name="inext"></ion-icon> -->
+					<button icon-only full ion-button clear color="yellow">
+						<ion-icon name="inext"></ion-icon>
+					</button>
+		            <span>下一张卷</span>
+				</ion-col>
+				<ion-col text-center (click)="next('pane')" col-4>
+					<button icon-only full ion-button clear color="yellow">
+						<ion-icon name="iisetting"></ion-icon>
+					</button>
+		            <span>阅卷设置</span>
+				</ion-col>
+				<ion-col text-center col-4>
+					<button icon-only full ion-button clear color="yellow">
+						<ion-icon name="ihelp"></ion-icon>
+					</button>
+		            <span>帮助说明</span>
+				</ion-col>
+			</ion-row>
+
+			<ion-row justify-content padding-horizontal>
+				
+				
+				<ion-col text-center (click)="entirePaper()" *ngIf="config.entirety" col-4>
+					<button icon-only full ion-button clear color="yellow">
+						<ion-icon name="ieye"></ion-icon>
+					</button>
+		            <span>查看整卷</span>
+				</ion-col>
+				<ion-col text-center (click)="next('exception')" *ngIf="config.exception" col-4>
+					<button icon-only full ion-button clear color="yellow">
+						<ion-icon name="iexception"></ion-icon>
+					</button>
+		            <span>异常试卷</span>
+				</ion-col>
+				<ion-col text-center (click)="dismiss(true)" col-4>
+					<button icon-only full ion-button clear color="yellow">
+						<ion-icon name="iexit"></ion-icon>
+					</button>
+		            <span>退出阅卷</span>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-grid class="reverse" *ngIf="page=='exception'" padding>
+			<h5 text-left padding-top margin-top padding-left>异常类型</h5>
+			<ion-row nowrap justify-content-start align-items-center >
+			 <ion-col col-4>
+			 <button ion-button outline mode="wp" color="white" 
+			 [class.active]="exceptionItem=='答错区域'"
+			 (click)="setException('答错区域')">答错区域</button>
+			 </ion-col>
+			 <ion-col col-4 >
+			 <button  ion-button outline mode="wp" color="white" 
+			 [class.active]="exceptionItem=='图片模糊'"
+			 (click)="setException('图片模糊')">图片模糊</button>
+			 </ion-col>
+			 <ion-col col-4 >
+			 <button ion-button outline mode="wp" color="white"
+			 [class.active]="exceptionItem=='图片不全'" 
+			 (click)="setException('图片不全')">图片不全</button>
+			 </ion-col>
+			</ion-row>
+			<ion-row nowrap justify-content-start align-items-center>
+			<ion-col col-4>
+			 <button ion-button outline mode="wp" color="white" 
+			 [class.active]="exceptionItem=='图片折叠'"
+			 (click)="setException('图片折叠')">图片折叠</button>
+			 </ion-col>
+			 <ion-col col-4>
+			 <button ion-button outline mode="wp" color="white" 
+			 [class.active]="exceptionItem=='其他异常'"
+			 (click)="setException('其他异常')">其他异常</button>
+			 </ion-col>
+			</ion-row>
+			<ion-row align-items-center style="margin-top:45px; ">
+				<ion-col>
+				 <button ion-button color="dark4" col-10 (click)="next()">取消</button>
+				</ion-col>
+				<ion-col>
+				 <button ion-button color="yellow" col-10 (click)="exception()">确定</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+
+		<ion-grid *ngIf="page=='pane'" class="reverse pane-setting">
+			<!-- <h5 padding-top>阅卷设置</h5> -->
+
+			<!-- <ion-row justify-content-center class="menu-setting-icon" >
+				<ion-col text-left col-6  align-self-center 
+				style="display: flex;display: -webkit-flex;color: white">
+					按键声音
+					<ion-toggle [(ngModel)]="settings.audio" color="secondary" padding-left></ion-toggle>
+				</ion-col>
+				<ion-col text-left col-6 align-self-center 
+				style="display: flex;display: -webkit-flex;color: white">
+					自动提交
+					<ion-toggle [(ngModel)]="settings.autoSubmit" color="secondary" padding-left></ion-toggle>
+				</ion-col>
+			</ion-row> -->
+
+			<ion-row padding-vertical style="font-size: 1.4rem">
+				<ion-note text-left>面板给分，在您的右手边出现给分面版，可通过直接点击给分。请现在下方点击选中常用给分分值排列于给分面板。
+				</ion-note>
+			</ion-row>
+
+			<ion-scroll scrollX="true" style="width:100%;" class="scroll-score">
+				<ion-row  nowrap>
+					<ion-col *ngFor="let item of options;let i=index;"
+					col-auto
+					tappable 
+					[class.active]="item[1]" 
+					(click)="optionTapped(i)">{{item[0]}}</ion-col>
+				</ion-row>
+			</ion-scroll>
+
+			<!-- </ion-row> -->
+			<ion-row align-items-center style="margin-top:45px; ">
+				<ion-col>
+				 <button ion-button color="dark4" col-10 (click)="next()">取消</button>
+				</ion-col>
+				<ion-col>
+				 <button ion-button color="yellow" col-10 (click)="saveOptions()">确定</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+</ion-content>

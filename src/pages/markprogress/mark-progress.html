@@ -1,0 +1,76 @@
+<!--
+  Generated template for the Markprogress page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header header-shadow>
+  <ion-navbar mode="ios">
+    <ion-title>阅卷进度</ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only (click)="reverse()">
+    <ion-icon name="iorder"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+    <ion-toolbar no-padding>
+        <ion-segment color="dark" mode="md" 
+        no-border
+        [(ngModel)]="selectedSegment"
+        justify-content-around>
+          <ion-segment-button style="max-width: 50%;" value="0" (ionSelect)="progress()">
+            阅卷进度
+          </ion-segment-button>
+          <ion-segment-button style="max-width: 50%;" value="1" (ionSelect)="markScene()">
+            评分曲线
+          </ion-segment-button>
+        </ion-segment>
+        <elastic-line [ratio]="0.5" [progress]="selectedSegment"></elastic-line>
+      </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-slides zoom="false" 
+  (ionSlideDidChange)="onSlideChanged($event)" 
+  autoHeight="true" 
+  *ngIf="progresses.length">
+  <ion-slide>
+      <ion-scroll scrollY="true">
+        <div style="height: 16px;width: 100%;background: transparent;" showWhen="ios"></div>
+          <ion-list>
+            <ion-card *ngFor="let item of progresses">
+              <ion-item>
+    	          <ion-label>{{item.name}}</ion-label>
+            		<div item-content style="padding-right: 8px;">
+            		<ion-icon name="iphone"></ion-icon>
+            			{{item.code}}
+            		</div>
+              </ion-item>
+              <ion-card-content>
+	              <div class="progress-outer">
+	                   <div class="progress-inner" 
+                    [style.max-width]="item.count/item.total*100+'%'">
+	                    <span>阅卷进度：{{item.count}}/{{item.total}}</span>
+	                 </div>
+	              </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>
+        </ion-scroll>
+      </ion-slide>
+      <!-- 评分曲线 -->
+      <ion-slide>
+      <ion-scroll scrollY="true">
+        <div  padding-top>
+          <p class="quTit" no-margin text-left padding-horizontal>
+          	<span>{{params.th}}题整体阅卷平均分为</span>
+              <span>{{average}}</span>
+          </p>
+          <div style="width: 100%;min-height:75vh;">
+          	<chart [options]="markScores.options" style="width:100%;min-height:75vh"></chart>
+          </div>
+        </div>
+        </ion-scroll>
+      </ion-slide>
+  </ion-slides>
+  <loading [error]="requests[selectedSegment]"></loading>
+</ion-content>

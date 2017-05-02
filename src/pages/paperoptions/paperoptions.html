@@ -1,0 +1,49 @@
+
+<ion-header color="dark" no-border>
+    <ion-navbar color="dark" no-border>
+    <ion-title>
+      {{title[key]}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- 班级列表 -->
+<ion-content *ngIf="key=='class'">
+	<div *ngIf="items.length" class="class">
+	  <ion-row *ngFor="let schools of items" padding margin-vertival>
+	    <ion-item-divider color="white" padding-horizontal-10>
+	    {{schools.name}}
+	    </ion-item-divider>
+	    <ion-col col-6 *ngFor="let item of schools.list" text-center>
+	     <button ion-button outline small color="light"
+          (click)="dismiss(item,schools.code)"
+           [class.selected]="selected==item.code">
+           {{item.name}}
+           </button>
+	    </ion-col>
+	  </ion-row>
+	</div>
+</ion-content>
+
+<!-- 考试列表 -->
+<ion-content *ngIf="key=='exam'">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content 
+          pullingIcon="ios-arrow-round-down-outline"
+          refreshingSpinner="ios-small"></ion-refresher-content>
+        </ion-refresher>
+    <ion-list *ngIf="items.length" padding-10>
+        <button ion-button block outline color="light" small
+            [class.selected]="selected==item.code"
+            *ngFor="let item of items" 
+            (click)="dismiss(item)">{{item.name}}</button>
+    </ion-list>
+    <ion-infinite-scroll 
+    *ngIf="items.length"
+      threshold="70%"
+      (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="ios-small"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <loading [error]="request"></loading>
+  <!-- </span> -->
+</ion-content>

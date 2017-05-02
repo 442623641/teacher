@@ -1,0 +1,16 @@
+<ion-tabs (tappress)="refresh($event)" #tabs [tabs]="[0,1]">
+  <ion-tab [root]="paperRoot" tabTitle="讲卷" tabIcon="ipaper"></ion-tab>
+ <ion-tab [root]="scoringRoot" tabTitle="阅卷" tabIcon="imark"></ion-tab>
+  <ion-tab [root]="usercenterRoot" tabTitle="我的" tabIcon="imy"></ion-tab>
+ 
+</ion-tabs>
+<!-- <a class="press-progress activated">
+		<ion-icon name="ios-refresh-outline" color="red" style="font-size: 42px"></ion-icon>
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" enable-background="new 0 0 40 40">
+		    <circle class="circle" cx="20" cy="20" r="19" opacity="0" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" fill="none"></circle>
+		    <path d="M20 1c10.45 0 19 8.55 19 19s-8.55 19-19 19-19-8.55-19-19 8.55-19 19-19z" 
+		    class="progress" stroke="#ff7d2d" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" 
+		    fill="rgba(255, 125, 45, .6)"></path>
+		</svg>
+
+	</a> -->

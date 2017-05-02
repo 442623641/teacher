@@ -1,0 +1,74 @@
+page-answerentity{
+	*{ margin:0 auto; padding:0px;}
+	[color=blue]{
+		color:#52a7ff;
+	}
+	.blue{
+		background:#52a7ff;
+	}
+	[color=green]{
+		color:#52b786;
+	}
+	.green{
+		background:#52b786;
+	}
+	.tigan{
+		width:100%;
+		margin:0.75em 0;
+		background:#fff;
+		}
+
+	.picTi{
+		width:93.6%;
+		margin:0.75em 3.2%;
+		}
+
+	.percent{
+		margin:0.75em 0;
+		}
+
+	.perTit{
+		margin:1.5em 3.2% 0.75em;
+		}
+
+	.percent .grade{
+		color:#fff;
+		padding: 0.11em 0.69em 0.18em;
+		font-size:0.8125em;
+		border-radius:4px;
+		margin-right:2%;
+		}
+
+	.peoNum{
+		font-size:0.875em;
+		}
+
+	.perList{
+		// border-top:1px solid #d6d5d6;
+		// border-bottom:1px solid #d6d5d6;
+		background:#fff;
+		}
+
+	.perList .listDetail{
+		border-bottom: 1px solid rgba(214, 213, 214, .5);
+		height:3.143em;
+		line-height:3.143em;
+		font-size:0.875em;
+		}
+
+	.perList .listDetail:nth-last-child(1){
+		border-bottom:none;
+		}
+
+	.peoName{
+		margin-left:3.2%;
+		}
+
+	.lookPaper{
+		// margin-right:3.2%;
+		}
+		
+	.listDetail .jiantou{
+		margin:1.1em 0;
+		}	
+}

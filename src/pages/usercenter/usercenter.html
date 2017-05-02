@@ -1,0 +1,31 @@
+
+<ion-content>
+  <div class="touxiang">
+    <img src="{{Avatar}}" width=100 height=100 tappable (click)="openFace()"/>
+    <p class="name">{{_userName}}老师</p>
+    <p class="school">{{_schoolName}}</p>
+  </div>
+  <ion-list no-border>
+    <button ion-item no-border item-inner_line (click)="gonewPage()">
+      <ion-icon item-left name="ipassword"></ion-icon>
+      修改密码
+    </button>
+    <div style=" height: 22px;"></div>
+    <button ion-item no-border item-inner_line (click)="gofeedbackPage()">
+      <ion-icon item-left name="iyijian"></ion-icon>
+      意见反馈
+    </button>
+    <button ion-item no-border item-inner_line (click)="callPhone()">
+      <ion-icon item-left name="itelephone"></ion-icon>
+      联系客服
+      <div item-content style=" color: silver">{{telNumber}}</div>
+    </button>
+    <div style=" height: 22px;"></div>
+    <button ion-item no-border item-inner_line (click)="gosetupPage()">
+      <ion-icon item-left name="imyset"></ion-icon>
+      设置
+    </button>
+
+  </ion-list>
+
+</ion-content>

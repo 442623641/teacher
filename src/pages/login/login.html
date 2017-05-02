@@ -1,0 +1,44 @@
+ <ion-content no-bounce> 
+    <ion-row justify-content-center class="header-logo" [class.hidden]="focus" padding-top>
+      <ion-col align-self-center text-center padding-top>
+        <img src="assets/images/logo.png" height="70px" />
+        </ion-col>
+    </ion-row>
+   
+<div class="loginArea" [class.focus]="focus">
+    <form (ngSubmit)="onLogin()">
+      <ion-item style="background: transparent;">
+        <ion-label color="gray9"><ion-icon name="iuser"></ion-icon></ion-label>
+        <ion-input 
+        type="tel"
+        name="usercode" 
+        placeholder="请输入手机号码" 
+        [(ngModel)]="login.usercode" 
+        (blur)="focus=false" 
+        (focus)="focus=true"></ion-input>
+      </ion-item>
+        <ion-item style="background: transparent;" padding-top>
+        <ion-label color="gray9"><ion-icon name="ilock"></ion-icon></ion-label>
+        <ion-input 
+        type="password" 
+        placeholder="请输入密码" 
+        name="password"
+        [(ngModel)]="login.password" 
+        (blur)="focus=false" 
+        (focus)="focus=true"></ion-input>
+      </ion-item>
+        <ion-row justify-content-end padding><ion-col col-5 text-right class="forgetPass"
+        (click)="onForgot()" tappable>忘记密码?</ion-col></ion-row>
+       <button type="submit" tappable>
+          <span *ngIf="!loging">登录</span>
+          <ion-spinner *ngIf="loging" name="dots"  color="white"></ion-spinner>
+        </button> 
+    </form> 
+    </div>
+    <ion-footer [class.focus]="focus" style="z-index: -1;">
+      <p>七天网络旗下品牌</p>
+      <p>©7net.cc</p>
+  </ion-footer>
+   <!-- <ion-backdrop  style="z-index: 5"></ion-backdrop> -->
+  </ion-content>
+

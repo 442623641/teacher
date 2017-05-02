@@ -1,0 +1,15 @@
+tabs{
+
+	.tab-button-icon:before {
+	    content: "sirvhiuwf";//url('../assets/images/icon_peo@1x.png');//-webkit-image-set( url('../assets/images/icon_peo@1x.png') 1x,
+					//  url('../assets/images/icon_peo@2x.png') 2x,
+					 // url('../assets/images/icon_peo@3x.png') 3x);
+	}
+	.ion-ios-svpaper,.ion-svpaper,.ion-md-svpaper{
+		    background-image: url(../images/icon_speakHot@1x.png);
+		    background-image: -webkit-image-set( url(../images/icon_speakHot@1x.png) 1x,
+		 url(../images/icon_speakHot@2x.png) 2x,
+		 url(../images/icon_speakHot@3x.png) 3x);
+
+	}
+}

@@ -1,0 +1,81 @@
+<div class="backdrop" [class.active]="showMenu" (click)="menuClose()" [style.z-index]="backdrop">
+</div>
+<ion-header header-shadow no-border>
+  <ion-navbar>
+    <ion-title>讲卷</ion-title>
+    <ion-buttons end *ngIf="selected">
+      <button ion-button (click)="openMenu()" clear color="gray9">
+        筛选
+      </button> 
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+      <ion-scroll [scrollY]="!showMenu" class="icontent" #content>
+      <!-- <ion-grid> -->
+      <div *ngIf="selected&&request.status==200">
+        <div style="height: 16px;width: 100%;background: transparent;" showWhen="ios"></div>
+        <ion-row 
+        color="background" 
+        class="card-header" style="color: #999;font-size: 0.875em;padding: 6px 12px" no-wrap>
+        <ion-note col-6 class="wrap">{{selected.exam.name}}</ion-note> 
+        <ion-note col-4 class="wrap" text-right>{{selected.class.name}}</ion-note> 
+        <ion-note col-2 class="wrap" text-right>{{selected.subject}}</ion-note>
+        </ion-row>
+        <ion-card no-margin style="width:100%;margin-bottom: 0.75em;">
+          <ion-item>
+            <ion-label class="card-header">成绩分布</ion-label>
+            <button ion-button  clear item-right color="yellow" 
+            (click)="openModalScorentity()"
+            style="font-size: 1.5rem;padding:0;margin:0;">查看成绩单</button>
+          </ion-item>
+         <ion-card-content no-padding >  
+            <chart [options]="options.score" style="width:98%;height:150px"></chart>
+            </ion-card-content>          
+        </ion-card>
+
+         <ion-card no-margin style="width:100%;margin-bottom: 0.75em;">
+           <ion-card-header class="card-header">小题得分对比</ion-card-header>
+         <ion-card-content no-padding>  
+            <chart [options]="options.item" style="width:98%;height:220px"></chart>
+            </ion-card-content>          
+        </ion-card>
+
+        <ion-item-divider 
+        color="background" 
+        class="card-header">答题情况</ion-item-divider>
+
+        <ion-row padding-horizontal-10 style="font-size: 1.2rem;color: #999;padding-bottom: 12px">
+          <ion-col no-padding nowrap><span class="circle red" ></span>得分率低于30%</ion-col>
+          <ion-col  no-padding nowrap><span class="circle blue"></span>得分率低于40%</ion-col>
+          <ion-col  no-padding nowrap><span class="green circle"></span>得分率大于40%</ion-col> 
+        </ion-row>
+      </div> 
+        <!--得分率的颜色有red blue green三种，3个一循环-->
+         <!-- <ion-list [virtualScroll]="answers" approxItemHeight="275px"> -->
+
+         <ion-card *ngFor="let answer of answers" style="height: 256px">
+         <ion-card-header class="card-header">第{{answer.th}}题【{{answer.full}}分】</ion-card-header>
+         <ion-card-content padding-horizontal-10>
+          <chart [options]="answer.options" style="height: 153px;width:93.8%;" ></chart>
+          </ion-card-content>
+          <ion-row justify-content-between align-items-center nowrap margin-10 
+          class="card-footer" >
+            <ion-col col-auto no-padding color="dark3">
+            {{answer.rlen}}人满分 {{answer.elen}}人答错
+            </ion-col >
+            <ion-col col-auto no-padding class="{{answer.color}}">
+            得分率{{answer.rate}}%
+            </ion-col>
+            <ion-col text-right col-auto no-padding>
+            <button ion-button icon-right clear small color="yellow"
+            no-padding 
+            (click)="openModalAnswerentity(answer.th)"> 
+              <div>查看详情</div>
+              <ion-icon name="ios-arrow-forward" color="gray9"></ion-icon>
+            </button>
+          </ion-col>
+          </ion-row>
+        </ion-card>
+    </ion-scroll>
+    <loading [error]="request" [func]="ngAfterViewInit"></loading>

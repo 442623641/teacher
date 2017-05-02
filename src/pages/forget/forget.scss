@@ -1,0 +1,106 @@
+forget-password{
+
+  .listHang{
+    margin:0 6.4%;
+    height:2.5em;
+    line-height:2.5em;
+    border-bottom:1px solid #d6d5d6;
+
+  }
+  .listHang .icon{
+    margin-left:1.6%;
+    margin-right:2.67%;
+  }
+
+
+
+  /*修改密码 开始*/
+  .main_pass{
+    margin-top:2.5em;
+  }
+
+  .newPassword{
+    display:none;
+  }
+
+  .listHang input{
+    width:37%;
+    font-size:1em;
+    border:none;
+    height:2.45em;
+    line-height:2.45em;
+  }
+
+  .listHang .boldzi{
+    width:30%;
+    margin-left:1.6%;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 0px;
+  }
+
+  .listHang input:focus{
+    outline:none;
+  }
+
+  .passBtn{
+    width:87.2%;
+    margin-left:6.4%;
+    margin-top:2.78em;
+    text-align:center;
+    height:2.67em;
+    line-height:2.67em;
+    font-size:1.125em;
+    background:#4a4c5b;
+    color:#fff;
+    border-radius:4px;
+  }
+
+  .passBtn:active{
+    background:rgba(74,76,91,0.8);
+  }
+
+  .passBtn_not{
+    background:rgba(74,76,91,0.2);
+  }
+  /*修改密码 结束*/
+
+
+
+  .button{
+    transition: background-color, opacity 100ms linear;
+    //width:87.2%;
+    //margin-left:6.4%;
+    text-align:center;
+    height:2.75em;
+    line-height:2.75em;
+    color:#fff;
+    border-radius:4px;
+    background-color:#4a4c5b;
+    border:none;
+    font-size:1.6rem;
+    font-family:"微软雅黑";
+    margin-top: 40px;
+  }
+  .button.activated{
+    opacity:.6;
+  }
+  ion-app, .content {
+    background:#ffffff;
+  }
+  .toolbar-background-ios {
+    background: #ffffff;
+  }
+  .toolbar-title-ios {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    color: #171616;
+    pointer-events: auto;
+  }
+  .mainOrange{ font-size: 14px; margin: 0px; background: #fff; height: 2.9rem; line-height: 2.9em; float: right; padding: 0}
+  .maindiscolor{ font-size: 14px; margin: 0px; background: #fff; height: 2.9rem; line-height: 2.9em; float: right; padding: 0;color:#787878}
+  .toolbar-ios ion-title {
+    border-bottom: 1px rgba(158, 158, 158, 0.3) solid;
+  }
+}

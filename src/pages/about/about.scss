@@ -1,0 +1,41 @@
+about{
+
+  [item-inner_line]{ border-bottom: solid 1px rgba(158, 158, 158, .3)}
+  ion-app, .content {
+    background:#ffffff;
+  }
+  .toolbar-background-ios {
+    background: #ffffff;
+  }
+  .toolbar-title-ios {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    color: #171616;
+    pointer-events: auto;
+  }
+
+
+  .logoArea{
+    width:100%;
+    text-align:center;
+    margin:3.125em 0;
+  }
+
+  .aboutSeven .words{
+    width:84%;
+    margin-left:8%;
+    font-size:0.875em;
+    line-height:1.57em;
+
+  }
+
+  .aboutSeven .words p{
+    text-indent:2em;
+    margin-bottom:1.78em;
+  }
+  .toolbar-ios ion-title {
+    border-bottom: 1px rgba(158, 158, 158, 0.3) solid;
+  }
+
+}

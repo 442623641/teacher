@@ -1,0 +1,84 @@
+<ion-header no-shadow>
+	<ion-navbar>
+		<ion-title>回评试卷</ion-title>
+		<ion-buttons end *ngIf="_exception||_entirety">
+			<button ion-button icon-only clear color="white" (click)="openMenu($event)"><ion-icon item-left name="imarkback"></ion-icon></button>
+		</ion-buttons>
+	</ion-navbar>
+	<ion-toolbar>
+		<ion-scroll scrollX="true" style="width:100%; height: 69px;">
+			<div class="swiper-wrapper">
+				<ion-col class="ion-col-th" *ngFor="let item of newScores;let i=index;" (click)="selectScoreItem(i)" tappable>
+				<div class="swiper-slide tiList" [class.tiListHot]="scoresIndex==i">
+					<div class="tinum">
+						<p class="haoma">第{{item.th}}题</p>
+						<div class="sanjiao"></div>
+						<div class="ping">{{item.self}}分</div>
+					</div>
+				</div>
+				</ion-col>
+			</div>
+		</ion-scroll>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content no-bounce>
+	<ion-scroll scrollY="true" scrollX="true" style="width:100%; height: 100%; position: relative" zoomable>
+		<div style=" width: 100%;"><img-lazy padding-10 src="{{_imgUrl}}" *ngIf="!iloading" style=" margin-bottom: 135px;"></img-lazy></div>
+	</ion-scroll>
+	<loading *ngIf="iloading"></loading>
+	<ion-footer style="width: 100% ;height: 148px; background: #fff">
+
+		<!-- <ion-row> -->
+		<!--<div class="keybraod-input">-->
+		<!--<div class="keybraod-input-left">第{{topicName}}题 | <span>{{score}}</span></div>-->
+		<!--&lt;!&ndash;<div class="keybraod-input-right" *ngIf="toggleShow">&ndash;&gt;-->
+		<!--&lt;!&ndash;<ion-toggle checked="{{tagChip}}" (ionChange)="clickToggle()"></ion-toggle>&ndash;&gt;-->
+		<!--&lt;!&ndash;</div>&ndash;&gt;-->
+		<!--</div>-->
+
+		<!-- </ion-row> -->
+		<ion-row class="tags_float" *ngIf="tagChip">
+			<ion-chip *ngFor="let item of tagList;let tagItem=index;" (click)="chipClick(tagItem)"
+					  [class.chipactive]="myTags.indexOf(item)>-1" tappable>
+				<ion-label>{{item}}</ion-label>
+			</ion-chip>
+		</ion-row>
+		<ion-row>
+			<ion-col soundable="keyboard">
+				<ion-row>
+					<ion-col (click)="onkeyboard('1')" tappable >1</ion-col>
+					<ion-col (click)="onkeyboard('2')" tappable >2</ion-col>
+					<ion-col (click)="onkeyboard('3')" tappable >3</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col (click)="onkeyboard('4')" tappable>4</ion-col>
+					<ion-col (click)="onkeyboard('5')" tappable>5</ion-col>
+					<ion-col (click)="onkeyboard('6')" tappable>6</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col (click)="onkeyboard('7')" tappable>7</ion-col>
+					<ion-col (click)="onkeyboard('8')" tappable>8</ion-col>
+					<ion-col (click)="onkeyboard('9')" tappable>9</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col (click)="onkeyboard('.')" tappable>·</ion-col>
+					<ion-col (click)="onkeyboard('0')" tappable>0</ion-col>
+					<ion-col (click)="onDelkeyboard()" tappable><ion-icon ios="ios-backspace-outline" md="md-backspace"></ion-icon></ion-col>
+				</ion-row>
+			</ion-col>
+
+			<ion-col  style="max-width: 25%; ">
+				<!--<ion-row >-->
+				<!--<ion-col><div class="keybraod" (click)="onNextkeyboard()" tappable>确定</div></ion-col>-->
+				<!--</ion-row>-->
+				<ion-row>
+					<ion-col><div class="keybraod iosblue" (click)="onSubmitkeyboard()" tappable>{{buttonState}}<ion-spinner name="crescent" color="white" *ngIf="buttonState==''"></ion-spinner></div></ion-col>
+
+				</ion-row>
+
+			</ion-col>
+
+		</ion-row>
+	</ion-footer>
+</ion-content>

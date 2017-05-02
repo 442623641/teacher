@@ -1,0 +1,22 @@
+# Non-project-specific build files:
+*build.xml
+
+#Java builds
+*.class
+
+# Eclipse builds
+*gen/
+*out/
+*bin/
+*.settings
+*obj/
+*repos/
+*.gradle/
+lint.xml
+*.classpath
+
+# Gradle builds
+/build
+
+#Mac file
+*.DS_Store

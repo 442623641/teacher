@@ -1,0 +1,32 @@
+{
+  "name": "teacher",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/login",
+      "proxyUrl": "http://116.62.25.178:9090/login"
+    },
+    {
+      "path": "/mpaper",
+      "proxyUrl": "http://116.62.25.178:9090/mpaper"
+    },
+    {
+      "path": "/mark",
+      "proxyUrl": "http://116.62.25.178:9090/mark"
+    },
+    {
+      "path": "/index",
+      "proxyUrl": "http://116.62.25.178:9090/index"
+    },
+    {
+      "path": "/usercentre",
+      "proxyUrl": "http://116.62.25.178:9090/usercentre"
+    },
+    {
+      "path": "/review",
+      "proxyUrl": "http://116.62.25.178:9090/review"
+    }
+  ]
+}

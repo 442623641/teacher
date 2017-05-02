@@ -1,0 +1,123 @@
+<ion-header no-shadow>
+	<ion-navbar>
+		<ion-title>回评检查</ion-title>
+	</ion-navbar>
+	<ion-toolbar>
+		<ion-segment [(ngModel)]="selectItem" (ionChange)="onSelect()">
+			<ion-segment-button value="0">
+				{{selectItemArr[0]}}
+				<!--<ion-icon item-left name="imarkcheak"></ion-icon>-->
+			</ion-segment-button>
+			<ion-segment-button value="1">
+				{{selectItemArr[1]}}
+				<!--<ion-icon item-left name="imarkcheak"></ion-icon>-->
+			</ion-segment-button>
+			<ion-segment-button value="2">
+				{{selectItemArr[2]}}
+				<!--<ion-icon item-left name="imarkcheak"></ion-icon>-->
+			</ion-segment-button>
+			<ion-segment-button value="3">
+				{{selectItemArr[3]}}
+				<!--<ion-icon item-left name="imarkcheak"></ion-icon>-->
+			</ion-segment-button>
+			<ion-segment-button value="4">
+				{{selectItemArr[4]}}
+				<!--<ion-icon item-left name="imarkcheak"></ion-icon>-->
+			</ion-segment-button>
+		</ion-segment>
+
+	</ion-toolbar>
+</ion-header>
+
+<ion-content overflow-scroll="false" style="overflow: hidden">
+	<!-- <ion-backdrop
+		disable-activated
+	     class="loading-ios" 
+	     role="dialog">
+	  </ion-backdrop> -->
+	<!-- <div class="selectMenumain"> -->
+		<!-- <div [style.display]="_display" class="selectMenu" [style.top]="_selectMenutop" (click)="closeMeun()" tappable>
+			<form (submit)="doSubmit($event)" [formGroup]="langForm" >
+				<ion-list *ngIf="_itemArr.length>0" radio-group formControlName="langs" (ionChange)="hitRadio($event)" [(ngModel)]="relationship">
+					<ion-item *ngFor="let itemName of _itemArr;let i=index;" (click)="openMultiPicker()" tappable>
+						<ion-label>{{itemName}}</ion-label>
+						<ion-radio value="{{itemName}}" [checked]="selectItemArr.indexOf(itemName.toString())>-1"></ion-radio>
+					</ion-item>
+				</ion-list>
+			</form>
+		</div>
+ -->	<!-- </div> -->
+
+	<ion-item style=" display: none">
+		<ion-multi-picker id="multiPicker" item-content [separator]="'-'"
+						  cancelText="取消" doneText="完成"
+						  [multiPickerColumns]="simpleColumns"
+						  [(ngModel)]="fruit" (ionChange)="selectpicker($event)" >
+		</ion-multi-picker>
+	</ion-item>
+	<ion-refresher (ionRefresh)="doRefresh($event)" loadingSpinner="ios-small">
+		  <ion-refresher-content
+				  pullingIcon="md-arrow-down"
+				  pullingText="下拉刷新"
+		  ></ion-refresher-content>
+		  </ion-refresher>
+	<ion-list *ngIf="!iloading">
+	<ion-item class="markcheakladel" *ngIf="markPages>0">
+		<ion-label>{{markPages}}份试卷</ion-label>
+		<ion-label class="ion-label_right">点击答题区重新评分</ion-label>
+	</ion-item>
+
+	<!--按答卷显示-->
+	<ion-list *ngIf="markType==0">
+		<ion-card *ngFor="let item of reviewList;let i=index;">
+			<ion-item class="card-header">
+				<ion-note item-left class="ard-header_color">
+					得分：{{item.scores}}
+				</ion-note>
+				<ion-note item-right>
+					{{item.time}}
+				</ion-note>
+			</ion-item>
+			<ion-row class="card-footer-row" >
+				<ion-card-content>
+					<img width="100%" src="{{item.url}}" (click)="gomarkBack(item.guid,i)" tappable/>
+				</ion-card-content>
+			</ion-row>
+		</ion-card>
+	</ion-list>
+
+	<!--按得分显示-->
+	<ion-list *ngIf="markType==1">
+		<ion-card *ngFor="let item of reviewList;let i=index" class="iod-card-scord" (click)="gomarkBack(item.guid,i)" tappable>
+			<ion-item class="card-header">
+				<ion-note item-left class="ard-header_color" >
+					<P class="ion-note-p" *ngFor="let th of _thList;let i=index;">{{th}}题：<span>{{item.scores[i]}}分</span></P>
+				</ion-note>
+			</ion-item>
+			<ion-row class="card-footer-row" >
+				<ion-card-content>
+					{{item.time}}
+				</ion-card-content>
+			</ion-row>
+		</ion-card>
+	</ion-list>
+	</ion-list>
+
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" shouldEnable="true" loadingSpinner="ios-small" *ngIf="infiniteLock">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	<loading [error]="request"></loading>
+</ion-content>
+<ion-backdrop class="backdrop" [class.active]="_display!='none'" (click)="_display='none'">
+	<div class="selectMenu" [style.top]="_selectMenutop" (click)="closeMeun()" tappable>
+			<form (submit)="doSubmit($event)" [formGroup]="langForm" >
+				<ion-list *ngIf="_itemArr.length>0" radio-group formControlName="langs" (ionChange)="hitRadio($event)" [(ngModel)]="relationship" no-margin>
+				<div style="height: 19px;width: 100%;background: transparent;" showWhen="ios"></div>
+					<ion-item *ngFor="let itemName of _itemArr;let i=index;" (click)="openMultiPicker()" tappable>
+						<ion-label>{{itemName}}</ion-label>
+						<ion-radio value="{{itemName}}" [checked]="selectItemArr.indexOf(itemName.toString())>-1"></ion-radio>
+					</ion-item>
+				</ion-list>
+			</form>
+		</div>
+</ion-backdrop>

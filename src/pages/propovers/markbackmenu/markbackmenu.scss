@@ -1,0 +1,41 @@
+page-markbackmenu {
+	[col-2] {
+		width: 100%;
+		max-width: 100%;
+		flex: 0 0 50%;
+	}
+	h5{
+		color: #dedcdc;
+		text-align:left;
+	}
+	.content{
+		&>.scroll-content{
+			height:100vh;
+		}
+
+		background: transparent;
+
+	}
+   	ion-col>span{
+		display:block;
+		font-weight:bold;
+		color:#fff;
+	}
+	.active{
+		color:#ff7d2d;
+		border: solid 1px #ff7d2d;
+	}
+
+
+}
+.popover-ios .popover-arrow {
+	display: none;
+}
+
+ion-app.ios [margin-right], ion-app.ios [margin-right] .scroll-content {
+	margin-right: 6px;
+}
+
+ion-app.ios [margin-left], ion-app.ios [margin-left] .scroll-content {
+	margin-left: 6px;
+}
